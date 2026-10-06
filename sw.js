@@ -1,10 +1,11 @@
-const CACHE_NAME = 'bfil-cash-tools-v11';
+const CACHE_NAME = 'bfil-cash-tools-v12';
 const APP_FILES = [
   './index.html',
   './manifest.webmanifest',
   './business-margins.json',
-  './logo-mark-dark.png',
-  './logo-mark-white.png',
+  './logo-light.png',
+  './logo-night.png',
+  './logo-rainbow-mask.png',
   './icon-192.png',
   './icon-512.png'
 ];
