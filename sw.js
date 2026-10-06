@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bfil-cash-tools-v9';
+const CACHE_NAME = 'bfil-cash-tools-v10';
 const APP_FILES = [
   './index.html',
   './manifest.webmanifest',
