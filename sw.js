@@ -1,7 +1,8 @@
-const CACHE_NAME = 'bfil-cash-tools-v2';
+const CACHE_NAME = 'bfil-cash-tools-v9';
 const APP_FILES = [
   './index.html',
   './manifest.webmanifest',
+  './business-margins.json',
   './icon-192.png',
   './icon-512.png'
 ];
@@ -23,4 +24,9 @@ self.addEventListener('fetch', event => {
     return response;
   }).catch(() => caches.match(event.request).then(cached => cached || caches.match('./index.html'))));
 });
+
+
+
+
+
 
