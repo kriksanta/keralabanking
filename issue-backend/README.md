@@ -49,7 +49,7 @@ Do not stage the generated `.wrangler` folder. If the dashboard later saves marg
 - Normal users keep their existing app login.
 - Your admin credentials on the same login screen open the dashboard once Google is connected.
 - **Margins:** add or remove businesses, then save with a repository token as before.
-- **Submissions:** read issues and press Refresh for new entries. The latest 500 entries appear; the Sheet retains older entries.
+- **Submissions:** read issues and press Refresh for new entries. Each issue has an Open/Closed badge and a **Mark closed** or **Mark open** button. Status is saved in the Sheet, so it remains after refreshing. New and existing issues start as Open. The latest 500 entries appear; the Sheet retains older entries.
 - **Notice board:** save footer text to GitHub. Clear the text to hide it. Visitors receive the update after GitHub Pages publishes it and the app reloads the notice (every minute while visible).
 - **Account:** change the admin username and/or password after entering the current password. Leave the new password empty to change only the username. Other admin sessions are invalidated. The normal app username `admin` is reserved.
 - Admin sessions stay in the current browser tab for up to six hours. Google may clear an inactive cached session sooner; log in again if asked.

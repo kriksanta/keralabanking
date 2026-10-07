@@ -47,14 +47,37 @@ function dispatch_(request) {
     return {ok: true};
   }
   if (request.action === 'inbox') {
+    const lock = LockService.getScriptLock();
+    lock.waitLock(10000);
+    try {
     const sheet = issueSheet_(properties);
     const lastRow = sheet.getLastRow();
     const start = Math.max(2, lastRow - 499);
-    const rows = lastRow < 2 ? [] : sheet.getRange(start, 1, lastRow - start + 1, 4).getValues();
+    const rows = lastRow < 2 ? [] : sheet.getRange(start, 1, lastRow - start + 1, 5).getValues();
     return {ok: true, username: session.username, total: Math.max(0, lastRow - 1),
       submissions: rows.reverse().map(function(row) {
-        return {id: String(row[0]), date: new Date(row[1]).toISOString(), name: String(row[2]), message: String(row[3])};
+        return {id: String(row[0]), date: new Date(row[1]).toISOString(), name: String(row[2]), message: String(row[3]),
+          status: row[4] === 'closed' ? 'closed' : 'open'};
       })};
+    } finally { lock.releaseLock(); }
+  }
+  if (request.action === 'issue-status') {
+    const id = String(request.id || '');
+    const status = String(request.status || '');
+    if (!/^[a-f0-9-]{36}$/.test(id) || !['open', 'closed'].includes(status)) throw new Error('Invalid issue status.');
+    const lock = LockService.getScriptLock();
+    lock.waitLock(10000);
+    try {
+      requireAdmin_(request, properties);
+      const sheet = issueSheet_(properties);
+      const count = sheet.getLastRow() - 1;
+      const ids = count > 0 ? sheet.getRange(2, 1, count, 1).getValues() : [];
+      const index = ids.findIndex(function(row) { return String(row[0]) === id; });
+      if (index < 0) throw new Error('This issue could not be found. Refresh the inbox.');
+      sheet.getRange(index + 2, 5).setValue(status);
+      SpreadsheetApp.flush();
+      return {ok: true, id: id, status: status};
+    } finally { lock.releaseLock(); }
   }
   if (request.action === 'account') {
     const lock = LockService.getScriptLock();
@@ -110,8 +133,19 @@ function issueSheet_(properties) {
   let sheet = workbook.getSheetByName('Issues');
   if (!sheet) {
     sheet = workbook.insertSheet('Issues');
-    sheet.appendRow(['ID', 'Date', 'Name', 'Issue']);
+    sheet.appendRow(['ID', 'Date', 'Name', 'Issue', 'Status']);
     sheet.setFrozenRows(1);
+  }
+  // Upgrade the original four-column sheet without changing names or issues.
+  if (sheet.getRange(1, 5).getValue() !== 'Status') {
+    sheet.getRange(1, 5).setValue('Status');
+    const count = sheet.getLastRow() - 1;
+    if (count > 0) {
+      const statuses = sheet.getRange(2, 5, count, 1).getValues();
+      sheet.getRange(2, 5, count, 1).setValues(statuses.map(function(row) {
+        return [row[0] === 'closed' ? 'closed' : 'open'];
+      }));
+    }
   }
   return sheet;
 }
@@ -133,8 +167,8 @@ function submitIssue_(request, properties) {
     if (count >= 20) throw new Error('The form is busy. Please try again in a minute.');
     // Plain text formatting prevents spreadsheet formula execution.
     const nextRow = sheet.getLastRow() + 1;
-    sheet.getRange(nextRow, 1, 1, 4).setNumberFormat('@');
-    sheet.getRange(nextRow, 1, 1, 4).setValues([[Utilities.getUuid(), new Date().toISOString(), safeCell_(name), safeCell_(message)]]);
+    sheet.getRange(nextRow, 1, 1, 5).setNumberFormat('@');
+    sheet.getRange(nextRow, 1, 1, 5).setValues([[Utilities.getUuid(), new Date().toISOString(), safeCell_(name), safeCell_(message), 'open']]);
     cache.put('issue-client:' + client, '1', 60);
     cache.put(minuteKey, String(count + 1), 120);
     return {ok: true};

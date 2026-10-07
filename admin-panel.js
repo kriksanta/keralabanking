@@ -156,8 +156,9 @@
   });
 
   let loadingInbox = false;
+  let updatingIssues = 0;
   async function loadInbox() {
-    if (loadingInbox || !session) return;
+    if (loadingInbox || updatingIssues || !session) return;
     loadingInbox = true;
     const button = document.querySelector('#refresh-submissions');
     button.disabled = true;
@@ -173,7 +174,37 @@
         const time = document.createElement('time'); time.dateTime = item.date;
         time.textContent = new Date(item.date).toLocaleString('en-IN');
         const message = document.createElement('p'); message.textContent = item.message;
-        meta.append(name, time); article.append(meta, message); inbox.append(article);
+        const controls = document.createElement('div'); controls.className = 'issue-controls';
+        const badge = document.createElement('span'); badge.className = 'issue-status-badge';
+        const toggle = document.createElement('button'); toggle.type = 'button';
+        let status = item.status === 'closed' ? 'closed' : 'open';
+        function renderStatus() {
+          badge.dataset.status = status;
+          badge.textContent = status === 'closed' ? 'Closed' : 'Open';
+          toggle.textContent = status === 'closed' ? 'Mark open' : 'Mark closed';
+          toggle.setAttribute('aria-label', toggle.textContent + ': ' + item.name);
+        }
+        renderStatus();
+        toggle.addEventListener('click', async () => {
+          const next = status === 'closed' ? 'open' : 'closed';
+          toggle.disabled = true; toggle.textContent = 'Saving…';
+          updatingIssues++; button.disabled = true;
+          feedback('submissions-status', 'Saving issue status…');
+          try {
+            const saved = await requestBackend('issue-status', {id: item.id, status: next});
+            if (saved.id !== item.id || saved.status !== next) throw new Error('The status was not confirmed. Refresh the inbox.');
+            status = saved.status;
+            feedback('submissions-status', 'Issue marked ' + status + '.', 'success');
+          } catch (problem) {
+            feedback('submissions-status', problem.message, 'error');
+            if (problem.message.includes('Session expired')) await signOutAdmin();
+          } finally {
+            updatingIssues--; toggle.disabled = false; renderStatus();
+            button.disabled = loadingInbox || updatingIssues > 0;
+          }
+        });
+        controls.append(badge, toggle);
+        meta.append(name, time); article.append(meta, message, controls); inbox.append(article);
       });
       if (!result.submissions.length) {
         const empty = document.createElement('p'); empty.className = 'inbox-empty';

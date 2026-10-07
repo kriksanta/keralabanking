@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bfil-cash-tools-v23';
+const CACHE_NAME = 'bfil-cash-tools-v24';
 const APP_FILES = [
   './index.html',
   './admin-panel.css',
