@@ -1,0 +1,15 @@
+name = "bfil-login-counter"
+main = "worker.js"
+compatibility_date = "2026-10-07"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://kriksanta.github.io"
+
+[[durable_objects.bindings]]
+name = "LOGIN_COUNTER"
+class_name = "LoginCounter"
+
+[exports.LoginCounter]
+type = "durable-object"
+storage = "sqlite"
