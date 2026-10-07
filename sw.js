@@ -1,6 +1,10 @@
-const CACHE_NAME = 'bfil-cash-tools-v22';
+const CACHE_NAME = 'bfil-cash-tools-v23';
 const APP_FILES = [
   './index.html',
+  './admin-panel.css',
+  './admin-panel.js',
+  './site-config.json',
+  './notice.json',
   './manifest.webmanifest',
   './business-margins.json',
   './logo-light.png',
