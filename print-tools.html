@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Print Maker</title>
+<style>
+:root{--green:#176b4a;--ink:#18221e;--muted:#68756f;--line:#d8e1db;--bg:#f3f6f3}*{box-sizing:border-box;font-family:Arial,sans-serif}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Arial, sans-serif}header{height:64px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,56px)}.brand{font-weight:700;font-size:17px}.brand span{display:inline-grid;place-items:center;background:var(--green);color:white;border-radius:8px;width:30px;height:30px;margin-right:8px}.secure{font-size:12px;color:var(--muted)}main{max-width:1370px;margin:32px auto;padding:0 22px 50px;display:grid;grid-template-columns:370px minmax(0,1fr);gap:26px;align-items:start}.intro{margin-bottom:20px}.eyebrow{text-transform:uppercase;letter-spacing:1.2px;font-weight:700;color:var(--green);font-size:10px}.intro h1{font-size:28px;line-height:1.15;margin:7px 0}.intro p{margin:0;color:var(--muted);font-size:13px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 20px #20362808}.card h2{font-size:15px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted);margin:0 0 16px}.field{margin-bottom:12px}.field label{font-size:11px;font-weight:700;display:block;margin-bottom:5px;color:#35433c}.field input{width:100%;border:1px solid #d6dfd9;border-radius:7px;padding:9px 10px;font:15px Arial;color:var(--ink);outline:none}.branch-source{display:block;margin-top:5px;color:var(--muted);font-size:10px}.branch-source a{color:var(--green)}.field input:focus,.count:focus{border-color:#57a27b;box-shadow:0 0 0 3px #176b4a17}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.denom-head{display:flex;justify-content:space-between;align-items:center;margin:16px 0 8px;font-weight:700;font-size:12px}.denom{display:grid;grid-template-columns:1fr 90px;gap:8px;align-items:center;border-bottom:1px solid #eef1ef;padding:5px 0;font-size:12px}.denom input{width:100%;border:1px solid #d6dfd9;border-radius:6px;padding:7px;text-align:right;font-size:16px}.totalBox{display:flex;justify-content:space-between;background:#edf6f0;padding:11px;border-radius:8px;margin-top:12px;font-weight:700}.actions{display:flex;gap:8px;margin-top:16px}.btn{border:0;border-radius:8px;padding:11px 14px;font-weight:700;cursor:pointer}.print{background:var(--green);color:#fff;flex:1}.clear{background:#eff3f0;color:#38463e}.hint{font-size:10px;text-align:center;color:var(--muted);margin:10px 0 0}.preview-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px;font-size:12px;font-weight:bold}.badge{color:var(--green);background:#e8f4ed;border-radius:20px;padding:5px 9px;font-size:10px}.copies{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.copy{background:white;border:1px solid #d5dcd7;padding:16px 15px 11px;box-shadow:0 6px 24px #233a2b0b;font-family:Arial,sans-serif;font-size:10px;text-align:left;position:relative}.entry-value{font-size:1.2em!important}.copy-title{text-align:center;font-size:13px;font-weight:700;line-height:1.2;white-space:nowrap}.copy-type{text-align:center;font-size:10px;font-weight:bold;margin:4px 0 9px}.rule{border-top:1px solid #222;margin-bottom:7px}.copy p{margin:5px 0}.bankline{font-weight:bold;text-align:left}.bankline .entry-value,.fillrow .entry-value{text-align:center}.words-block{margin:6px auto 0;max-width:92%;font-weight:bold}.words-value{min-height:14px;border-bottom:1px solid #222;font-weight:normal;overflow-wrap:anywhere;line-height:1.2}.words-block b{display:block;margin-bottom:2px}.amount-line{display:grid;grid-template-columns:auto 1fr auto 1.5fr;gap:4px;align-items:end;margin:6px 0}.amount-words{display:block;align-self:end;box-sizing:border-box;min-height:13px;height:auto;padding:0 2px 2px;border-bottom:1px solid #222;border-right:1px solid #222;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip;line-height:1.2;text-align:left;vertical-align:top}.words-extra{position:relative;width:100%;min-height:13px;height:auto;padding:0 2px 2px;border-bottom:1px solid #222;border-right:1px solid #222;overflow-wrap:anywhere;line-height:1.2;text-align:left}.words-extra:before{content:"";position:absolute;right:-1px;top:-6px;height:6px;border-right:1px solid #222}.separator{border-top:3px double #222;margin:12px 0 5px}.fillrow{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:4px;align-items:end;margin:6px 0}.fillrow.single{grid-template-columns:auto 1fr}.uline{min-height:13px;border-bottom:1px solid #222;padding:0 2px;font-size:10px;overflow:hidden;white-space:nowrap}.fixed{font-weight:bold}.employee{display:grid;grid-template-columns:auto 52px auto 1fr;gap:4px;align-items:end;margin:5px 0}.employee.branch{grid-template-columns:auto 52px auto 1fr}.denom-table{width:78%;margin:14px auto 10px;border-collapse:collapse;font-size:10px}.denom-table th,.denom-table td{border:1px solid #222;padding:2px 4px;height:16px}.denom-table th{text-align:center}.denom-table td:first-child{width:42%}.denom-table td:nth-child(2){width:42%;text-align:center}.denom-table td:last-child{width:16%;text-align:center}.cash-section td:first-child{font-weight:bold;text-align:left!important;padding-left:2mm}.note-count{display:inline-block;width:8mm;min-width:8mm;text-align:center;border:0;font-size:1.15em;margin-right:.5mm;line-height:1.05;vertical-align:baseline}.sumrow{font-weight:bold}.signatures{display:grid;grid-template-columns:1.2fr 1.8fr 1fr;gap:5px;margin-top:72px;align-items:end;font-size:9px;font-weight:bold;white-space:nowrap}.signatures span{padding-top:4px;text-align:left}.note{margin-top:8px;font-size:9px;color:#707a73}.cut-label{display:none}
+@media(max-width:1050px){main{grid-template-columns:330px minmax(0,1fr);gap:16px}.copies{grid-template-columns:1fr}.copy{max-width:600px;width:100%;margin:auto}.preview-head{max-width:600px;margin-left:auto;margin-right:auto}}@media(max-width:760px){main{display:flex;flex-direction:column;padding:0 14px 30px;margin-top:22px}.form-panel,.preview{width:100%}.copies{grid-template-columns:1fr}}
+@page assessment{size:A4 landscape;margin:5mm}
+@media print{@page{size:A4 portrait;margin:5mm}body{background:#fff;font-size:10px}header,.form-panel,.preview-head,#home-screen,.income-controls,.income-wrap>.back-button,.assessment-actions,.assessment-help{display:none!important}main{display:block!important;margin:0;padding:0;max-width:none}.preview{width:100%}.copies{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:140mm;gap:7mm;align-items:stretch}.copies:before{content:"✂";position:absolute;z-index:3;left:calc(50% - 3.5mm);top:0;bottom:0;width:7mm;display:flex;align-items:center;justify-content:center;border-left:1px dashed #222;color:#222;font-size:9pt;background:transparent}.copies:after{content:"✂";position:absolute;z-index:3;left:0;right:0;top:140mm;height:7mm;display:flex;align-items:center;justify-content:center;border-top:1px dashed #222;color:#222;font-size:9pt;background:transparent}.copy{position:relative;box-shadow:none;border:1px solid #222;width:100%;height:140mm;max-width:none;margin:0 auto;padding:2.5mm 2mm 2mm;font-size:6.4pt;break-inside:avoid;overflow:hidden;text-align:left}.copy-title{font-size:7.2pt;white-space:normal}.copy-type{font-size:6.5pt;margin:1mm 0 2mm}.rule{margin-bottom:1mm}.copy p{margin:1mm 0;text-align:left}.fillrow,.employee{margin:1.2mm 0;gap:1px;justify-content:initial}.uline{min-height:3mm;font-size:6.4pt;text-align:left}.amount-line{margin:1mm 0;gap:1px;grid-template-columns:auto 1fr auto 1.2fr}.amount-words{display:block;align-self:end;box-sizing:border-box;min-height:3mm;height:auto;padding:0 .5mm .3mm;border-bottom:1px solid #222;border-right:1px solid #222;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip;line-height:1.05;text-align:left;vertical-align:top}.words-extra{min-height:3.5mm;height:auto;width:100%;padding:0 .5mm .3mm;border-right:1px solid #222;overflow-wrap:anywhere;line-height:1.05;text-align:left}.words-extra:before{top:-1.2mm;height:1.2mm}.separator{margin:1.5mm 0 1mm}.denom-table{margin:2mm auto 1mm;width:96%;font-size:6.2pt}.denom-table th,.denom-table td{height:2.9mm;padding:0 .5mm;line-height:1}.note-count{width:8mm;min-width:8mm;border:0}.signatures{position:absolute;left:2mm;right:2mm;bottom:4mm;font-size:5.5pt;margin:0;gap:1mm}.entry-value{font-size:1.2em!important}.bankline{text-align:left}}
+@media print{.assessment-print,.assessment-table th,.assessment-table td{-webkit-print-color-adjust:exact;print-color-adjust:exact}body.in-income{page:assessment}body.in-income header,body.in-income #home-screen,body.in-income main{display:none!important}body.in-income #income-screen{display:block!important;max-width:none;margin:0;padding:0}body.in-income .income-layout{display:block}body.in-income .income-preview{overflow:visible}body.in-income #income-screen{width:100%;min-height:0}body.in-income .income-layout{width:100%;margin:0;padding:0}body.in-income .income-preview{width:100%;min-width:0;overflow:visible}body.in-income .assessment-print{width:100%;min-height:0;border:0;padding:0;margin:0;font-size:10pt}body.in-income .assessment-title{font-size:18pt;margin:0 0 3mm}body.in-income .assessment-table{width:100%;font-size:9pt}body.in-income .assessment-table th,body.in-income .assessment-table td{padding:1.7mm 1.2mm;line-height:1.12}body.in-income .assessment-meta{margin-bottom:3mm}body.in-income .assessment-meta span{min-height:5mm}body.in-income .assessment-bottom{margin-top:5mm}body.in-income .assessment-eligibility th,body.in-income .assessment-eligibility td,body.in-income .assessment-customer th,body.in-income .assessment-customer td{padding:1.4mm 1.5mm;line-height:1.15;font-size:9pt}}
+main{display:none}.in-tool main{display:grid}#home-screen{display:block}#income-screen{display:none}.in-income #home-screen,.in-income main{display:none}.in-income #income-screen{display:block}.header-right{display:flex;align-items:center;gap:14px}#logout{display:none;border:1px solid var(--line);border-radius:7px;background:#fff;padding:7px 11px;font-weight:700;cursor:pointer}#logout{display:inline-flex}.nav-home{display:none;border:1px solid var(--line);border-radius:7px;background:#fff;padding:7px 11px;font-weight:700;cursor:pointer}.in-tool .nav-home,.in-income .nav-home{display:inline-flex}.home-wrap{max-width:1050px;margin:70px auto;padding:0 24px 60px}.home-intro{margin-bottom:30px}.home-intro h1{font-size:36px;letter-spacing:-.7px;margin:8px 0}.home-intro p{color:var(--muted);font-size:15px;margin:0}.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.tool-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:26px;text-align:left;cursor:pointer;box-shadow:0 8px 26px #20362808;transition:transform .15s,border-color .15s,box-shadow .15s;color:var(--ink)}.tool-card:hover{transform:translateY(-3px);border-color:#87b99b;box-shadow:0 14px 32px #20362812}.tool-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:#e8f4ed;color:var(--green);font-size:23px;font-weight:700;margin-bottom:22px}.tool-card h2{font-size:20px;margin:0 0 8px}.tool-card p{color:var(--muted);font-size:13px;line-height:1.55;margin:0 0 22px}.tool-open{color:var(--green);font-size:13px;font-weight:700}.income-wrap{max-width:1500px;margin:24px auto;padding:0 24px 40px}.income-wrap> .back-button{margin-bottom:12px}.income-layout{display:grid;grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:18px;align-items:start}.income-controls{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:0 5px 20px #20362808}.income-controls h1{font-size:22px;margin:0 0 4px}.income-controls>p{color:var(--muted);font-size:12px;margin:0 0 16px}.income-controls .field{margin-bottom:9px}.income-controls .field input,.income-controls select{padding:8px 9px;font-size:14px}.custom-margin-toggle{border:0;background:transparent;color:var(--green);padding:4px 0;cursor:pointer;font:700 11px Arial,sans-serif;text-align:left}.income-preview{min-width:0;overflow:auto}.assessment-print{background:#fff;border:1px solid #222;padding:14px;font-family:Arial,sans-serif;color:#111;font-size:11px}.assessment-title{text-align:center;font-size:16px;font-weight:700;margin:0 0 10px}.assessment-meta{display:grid;grid-template-columns:1fr 1fr;gap:3px 18px;font-weight:bold;margin:0 0 10px}.assessment-meta span{border-bottom:1px solid #333;min-height:18px;padding:2px}.assessment-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px}.assessment-table th,.assessment-table td{border:1px solid #222;padding:3px 4px;vertical-align:middle}.assessment-table th{text-align:center;font-weight:700}.assessment-table thead th{font-weight:700!important;font-family:Arial,sans-serif}.assessment-table td:nth-child(1),.assessment-table td:nth-child(2),.assessment-table td:nth-child(3),.assessment-table td:nth-child(4),.assessment-table td:nth-child(5){text-align:center}.assessment-table td:nth-child(6){text-align:left}.assessment-table thead th:last-child{text-align:center}.assessment-table .section-row td{font-weight:700;background:#fff!important}.assessment-table tbody tr:not(.section-row) td{background:#e6b9b8}.assessment-table tbody tr.input-row td{background:#4ee852}.assessment-table tbody tr.existing-row td{background:#a5b6cf}.assessment-table .result-row td{font-weight:700}.assessment-actions{display:flex;justify-content:flex-end;gap:8px;margin:0 0 10px}.assessment-actions .btn{background:var(--green);color:#fff}.assessment-actions .secondary{background:#eef3ef;color:#334139}.assessment-result{font-weight:700}.assessment-print .assessment-bottom{display:grid;grid-template-columns:47.3% 11.6% 41.1%;gap:0;margin-top:16px}.assessment-print .assessment-eligibility{grid-column:1}.assessment-print .assessment-customer{grid-column:3}.assessment-print .assessment-eligibility,.assessment-print .assessment-customer{table-layout:fixed}.assessment-print .assessment-eligibility,.assessment-print .assessment-customer{width:100%;border-collapse:collapse}.assessment-print .assessment-eligibility th,.assessment-print .assessment-eligibility td,.assessment-print .assessment-customer th,.assessment-print .assessment-customer td{border:1px solid #222;padding:1px 4px;line-height:1;font-size:9px}.assessment-print .assessment-eligibility th,.assessment-print .assessment-customer th{text-align:left}.assessment-print .assessment-customer th{width:36.4%}.assessment-print .assessment-eligibility .eligibility-no{width:8%;text-align:center}.assessment-print .assessment-eligibility th{width:68.4%}.assessment-print .assessment-eligibility td:last-child{width:23.7%;text-align:center}.assessment-help{font-size:10px;color:var(--muted);margin:8px 0 0}@media(max-width:900px){.income-layout{grid-template-columns:1fr}.income-preview{overflow-x:auto}.assessment-print{min-width:850px}}@media(max-width:650px){.home-wrap{margin-top:38px;padding:0 16px 36px}.home-intro h1{font-size:30px}.tool-grid{grid-template-columns:1fr}.income-wrap{margin-top:15px;padding:0 12px}.assessment-print{min-width:760px}}
+</style><style>
+body{--green:#123b72;--ink:#182b3a;--muted:#637481;--line:#e1e8ea;--bg:#f4f7f8}body.in-tool main{margin-top:16px}body.in-income .income-wrap{margin-top:16px}.back-home{display:none}input,select,textarea{font-size:16px!important}body[data-theme="dark"]{--green:#80b6ff;--ink:#e9eff8;--muted:#acb8c9;--line:#33455d;--bg:#101c2d}body[data-theme="dark"] .card,body[data-theme="dark"] .income-controls{background:#17263b;color:var(--ink);border-color:var(--line)}body[data-theme="dark"] .field label{color:var(--ink)}body[data-theme="dark"] .field input,body[data-theme="dark"] .field select,body[data-theme="dark"] .denom input{background:#101c2d;color:var(--ink);border-color:var(--line)}body[data-theme="dark"] .totalBox{background:#203b5c}body[data-theme="dark"] .btn.print{background:#225390;color:#fff}body[data-theme="dark"] .clear{background:#263b55;color:#e9eff8}body[data-theme="dark"] .copy,body[data-theme="dark"] .assessment-print{color:#18221e;background:#fff}@media print{body,body[data-theme="dark"]{background:#fff;color:#18221e}}
+</style><style>body.challan-locked main{display:none!important}.challan-access{display:grid;place-items:center;min-height:480px;padding:28px 16px}.challan-access[hidden]{display:none}.challan-access-card{display:grid;gap:12px;width:min(360px,100%);background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 15px 40px #081c3912}.challan-access h1{font-size:22px;margin:0 0 8px}.challan-access label{font-weight:700}.challan-access input{padding:12px;border:1px solid var(--line);border-radius:9px;font-size:16px}.challan-access button{padding:12px;border:0;border-radius:9px;background:#123b72;color:white;font-size:16px;font-weight:700;cursor:pointer}.challan-access-error{color:#b42318;margin:0}.challan-access-error[hidden]{display:none}body[data-theme="dark"] .challan-access-card{background:#17263b}body[data-theme="dark"] .challan-access input{background:#101c2d;color:var(--ink)}body[data-theme="dark"] .challan-access-error{color:#ffaaa3}@media print{.challan-access{display:none!important}}</style></head><body>
+
+
+
+<section id="income-screen" class="income-wrap"><button class="back-button back-home" type="button">← Back to home</button><div class="income-layout"><div class="income-controls"><div class="eyebrow">Income based assessment</div><h1>Income Assessment</h1><p>Enter customer details and discussion-based amounts. Calculations update automatically.</p><div class="grid2"><div class="field"><label for="ia-customer">Customer Name</label><input id="ia-customer" placeholder="Customer name"></div><div class="field"><label for="ia-customer-id">Customer ID</label><input id="ia-customer-id" placeholder="Customer ID"></div></div><div class="grid2"><div class="field"><label for="ia-officer">Loan Officer Name</label><input id="ia-officer" placeholder="Loan officer name"></div><div class="field"><label for="ia-date">Date</label><input id="ia-date" type="date"></div></div><div class="field"><label for="ia-assessor">Assessment completed by</label><select id="ia-assessor"><option value="LO">LO</option><option value="BOM">BOM</option></select></div><div class="grid2"><div class="field"><label for="ia-sales">Daily Sales / Receipts (A)</label><input id="ia-sales" type="number" min="0" step="0.01" placeholder="₹ per day"></div><div class="field"><label for="ia-business-type">Business Type</label><input id="ia-business-type" type="search" list="ia-business-type-options" autocomplete="off" placeholder="Search business type"><datalist id="ia-business-type-options"></datalist><small id="ia-margin-lookup-status" class="branch-source">Loading business types…</small><button id="ia-custom-margin-toggle" class="custom-margin-toggle" type="button" aria-expanded="false">+ Add custom business type / margin</button><div id="ia-custom-margin-panel" class="field" hidden><label for="ia-custom-margin">Custom margin (%)</label><input id="ia-custom-margin" type="number" min="0" max="100" step="0.01" placeholder="Enter margin %"><small class="branch-source">Enter a margin only when this type is not listed.</small></div></div></div><div class="grid2"><div class="field"><label for="ia-rent">Shop Rent</label><input id="ia-rent" type="number" min="0" step="0.01" placeholder="₹ per month"></div><div class="field"><label for="ia-salary">Employee Salary</label><input id="ia-salary" type="number" min="0" step="0.01" placeholder="₹ per month"></div></div><div class="field"><label for="ia-other">Other Business Expenses</label><input id="ia-other" type="number" min="0" step="0.01" placeholder="₹ per month"></div><div class="grid2"><div class="field"><label for="ia-existing-emi">Existing EMI (all running loans)</label><input id="ia-existing-emi" type="number" min="0" step="0.01" placeholder="₹ per month"></div><div class="field"><label for="ia-tab">TAB Eligibility</label><input id="ia-tab" type="number" min="0" step="1" placeholder="Enter eligible amount"></div></div><div class="field"><label for="ia-income-eligibility">Income Assessment Eligibility</label><input id="ia-income-eligibility" type="number" min="0" step="1" placeholder="Enter eligible amount"></div><div class="assessment-actions"><button class="btn secondary" id="ia-clear" type="button">Clear</button><button class="btn" id="ia-print" type="button">Print Assessment</button></div></div><div class="income-preview"><div class="assessment-print" id="assessment-print"><table class="assessment-table"><colgroup><col style="width:3.74%"><col style="width:32.38%"><col style="width:11.20%"><col style="width:11.56%"><col style="width:14.94%"><col style="width:26.18%"></colgroup><thead><tr><th class="assessment-title" colspan="6">Income based assessment</th></tr><tr><th></th><th>Particulars</th><th>Calculation</th><th>LO Assessment (Maker)</th><th>BOM Assessment (Checker)</th><th>Remarks</th></tr><tr><th></th><th></th><th></th><th>Amount (INR)</th><th>Amount (INR)</th><th></th></tr></thead><tbody id="assessment-rows"></tbody></table><div class="assessment-bottom"><table class="assessment-eligibility"><colgroup><col style="width:7.9%"><col style="width:68.4%"><col style="width:23.7%"></colgroup><tbody><tr><td class="eligibility-no">1</td><th>TAB Eligibility</th><td id="out-tab"></td></tr><tr><td class="eligibility-no">2</td><th>Income Assessment Eligibility</th><td id="out-income-eligibility"></td></tr><tr><td class="eligibility-no">3</td><th>Final Sanction of the Loan (Lowest of 1 and 2)</th><td id="out-sanction"></td></tr></tbody></table><table class="assessment-customer"><colgroup><col style="width:36.4%"><col style="width:63.6%"></colgroup><tbody><tr><th>Customer Name</th><td id="out-customer"></td></tr><tr><th>Customer ID</th><td id="out-customer-id"></td></tr><tr><th>Loan Officer Name</th><td id="out-officer"></td></tr><tr><th>Date</th><td id="out-date"></td></tr></tbody></table></div></div><p class="assessment-help">Print on A4 landscape. Select LO or BOM as the assessor; the other assessment column will show a dash.</p></div></div></section>
+<main><section class="form-panel"><div class="intro"><div class="eyebrow">Printable deposit challan</div><h1>Fill your cash deposit slip</h1><p>Enter the deposit details once. The customer and bank copies print side by side on one A4 portrait sheet.</p></div>
+<div class="card"><h2>Deposit information</h2><p class="sub">Required details are printed on both copies.</p>
+<div class="field"><label for="branch">SBI Branch</label><input id="branch" list="kerala-branches" autocomplete="off" placeholder="Search Kerala SBI branches"><datalist id="kerala-branches">
+<option value="ACB - CHATHANNOOR" label="KOLLAM · Branch code 70067"></option>
+<option value="ACB CHERUKAVU" label="MALAPPURAM · Branch code 70443"></option>
+<option value="ACB EDATHUA" label="ALAPUZHA · Branch code 70096"></option>
+<option value="ACB KAVALAM" label="ALAPUZHA · Branch code 70229"></option>
+<option value="ACB KOTTAPADI" label="WAYANAD · Branch code 70478"></option>
+<option value="ACB NEDIAVILA" label="KOLLAM · Branch code 70476"></option>
+<option value="ACB POZHIYOOR" label="THIRUVANANTHAPURAM · Branch code 70566"></option>
+<option value="ACB VELLARIKUNDU" label="KASARAGOD · Branch code 71104"></option>
+<option value="ADAT" label="THRISSUR · Branch code 71242"></option>
+<option value="ADIMALI TOWN" label="IDUKKI · Branch code 70668"></option>
+<option value="ADOOR" label="PATHANAMTHITTA · Branch code 70060"></option>
+<option value="AKKULAM" label="THIRUVANANTHAPURAM · Branch code 70581"></option>
+<option value="ALAMCODE" label="THIRUVANANTHAPURAM · Branch code 70667"></option>
+<option value="ALANALLUR" label="PALAKKAD · Branch code 70939"></option>
+<option value="ALAPADAMBA" label="KANNUR · Branch code 71251"></option>
+<option value="ALAPPUZHA TOWN" label="ALAPUZHA · Branch code 70075"></option>
+<option value="ALAPPUZHA- DIST. COURT ROAD" label="ALAPUZHA · Branch code 70396"></option>
+<option value="ALAPPUZHA- VADAICANAL" label="ALAPUZHA · Branch code 70421"></option>
+<option value="ALATHUR" label="PALAKKAD · Branch code 70179"></option>
+<option value="ALAVIL" label="KANNUR · Branch code 71207"></option>
+<option value="ALINCHUVADU" label="ERNAKULAM · Branch code 70899"></option>
+<option value="ALUVA- CATHOLIC CENTRE" label="ERNAKULAM · Branch code 70147"></option>
+<option value="AMBALAPPUZHA" label="ALAPUZHA · Branch code 70082"></option>
+<option value="AMBALATHARA" label="THIRUVANANTHAPURAM · Branch code 71191"></option>
+<option value="AMMANCHERRY" label="KOTTAYAM · Branch code 70473"></option>
+<option value="ANAKKARA" label="IDUKKI · Branch code 70784"></option>
+<option value="ANANDAPALLY" label="PATHANAMTHITTA · Branch code 70955"></option>
+<option value="ANANGANADI" label="PALAKKAD · Branch code 70552"></option>
+<option value="ANAVILASOM" label="IDUKKI · Branch code 70585"></option>
+<option value="ANAYARA" label="THIRUVANANTHAPURAM · Branch code 71171"></option>
+<option value="ANCHAL" label="KOLLAM · Branch code 70245"></option>
+<option value="ANGADIPURAM" label="MALAPPURAM · Branch code 70739"></option>
+<option value="ANGAMALLY" label="ERNAKULAM · Branch code 70157"></option>
+<option value="ANJARAKANDY" label="KANNUR · Branch code 70982"></option>
+<option value="ANNIE HALL ROAD CALICUT" label="KOZHIKODE · Branch code 70301"></option>
+<option value="ANTHINADU" label="KOTTAYAM · Branch code 70416"></option>
+<option value="ARAKKINAR MEENCHANTHA" label="KOZHIKODE · Branch code 70456"></option>
+<option value="AREEKODE" label="MALAPPURAM · Branch code 70454"></option>
+<option value="ARIMBOOR" label="THRISSUR · Branch code 70970"></option>
+<option value="AROOKUTTY" label="ALAPUZHA · Branch code 70513"></option>
+<option value="ARTHICHERRY" label="ALAPUZHA · Branch code 70448"></option>
+<option value="ARUMANOOR" label="KOTTAYAM · Branch code 70489"></option>
+<option value="ASTER MEDCITY" label="ERNAKULAM · Branch code 71189"></option>
+<option value="ATHANI" label="ERNAKULAM · Branch code 70789"></option>
+<option value="ATHIKKAYAM" label="PATHANAMTHITTA · Branch code 71035"></option>
+<option value="ATHIRAMPUZHA" label="KOTTAYAM · Branch code 70112"></option>
+<option value="AVALOOKUNNU" label="ALAPUZHA · Branch code 70583"></option>
+<option value="AYANCHERY" label="KOZHIKODE · Branch code 71158"></option>
+<option value="AYATHIL" label="KOLLAM · Branch code 71089"></option>
+<option value="AYIRUR KATHAKALIGRAMAM" label="PATHANAMTHITTA · Branch code 70083"></option>
+<option value="AYMANAM" label="KOTTAYAM · Branch code 70232"></option>
+<option value="AZHIYOOR" label="KOZHIKODE · Branch code 70477"></option>
+<option value="BAKERY JUNCTION" label="THIRUVANANTHAPURAM · Branch code 70506"></option>
+<option value="BALARAMAPURAM" label="THIRUVANANTHAPURAM · Branch code 70035"></option>
+<option value="BALUSSERY" label="KOZHIKODE · Branch code 70314"></option>
+<option value="BHARANANGANAM" label="KOTTAYAM · Branch code 70350"></option>
+<option value="BISHOP JEROME NAGAR KOLLAM" label="KOLLAM · Branch code 70054"></option>
+<option value="BLATHUR" label="KANNUR · Branch code 70598"></option>
+<option value="BYPASS ERNAKULAM" label="ERNAKULAM · Branch code 70457"></option>
+<option value="CALICUT UNIVERSITY BRANCH" label="MALAPPURAM · Branch code 70200"></option>
+<option value="CALICUT- KALLAI" label="KOZHIKODE · Branch code 70285"></option>
+<option value="CHACKAI" label="THIRUVANANTHAPURAM · Branch code 70795"></option>
+<option value="CHAKKAMPUZHA" label="KOTTAYAM · Branch code 70501"></option>
+<option value="CHAKKARAKKAL" label="KANNUR · Branch code 70728"></option>
+<option value="CHAKKITTAPARA" label="KOZHIKODE · Branch code 71159"></option>
+<option value="CHALAKUDY" label="THRISSUR · Branch code 70168"></option>
+<option value="CHALISSERI" label="PALAKKAD · Branch code 70249"></option>
+<option value="CHALODE" label="KANNUR · Branch code 71106"></option>
+<option value="CHAMANPATHAL- VAZHUR" label="KOTTAYAM · Branch code 70417"></option>
+<option value="CHAMPAKULAM" label="ALAPUZHA · Branch code 70084"></option>
+<option value="CHANDAKKUNNU" label="MALAPPURAM · Branch code 71267"></option>
+<option value="CHANDANAPPALLY" label="PATHANAMTHITTA · Branch code 70957"></option>
+<option value="CHANGANASSERY" label="KOTTAYAM · Branch code 70103"></option>
+<option value="CHANGANASSERY- INDUSTRIAL ESTATE" label="KOTTAYAM · Branch code 70230"></option>
+<option value="CHANGARAMKULAM" label="MALAPPURAM · Branch code 70643"></option>
+<option value="CHARUMOOD" label="ALAPUZHA · Branch code 70467"></option>
+<option value="CHAVAKKAD" label="THRISSUR · Branch code 70167"></option>
+<option value="CHAVARA" label="KOLLAM · Branch code 70055"></option>
+<option value="CHAVARA" label="KOLLAM · Branch code 70283"></option>
+<option value="CHEEKKUNNUMMEL" label="KOZHIKODE · Branch code 70574"></option>
+<option value="CHELAD" label="ERNAKULAM · Branch code 70537"></option>
+<option value="CHELAKKARA TOWN" label="THRISSUR · Branch code 70709"></option>
+<option value="CHELARI" label="MALAPPURAM · Branch code 71099"></option>
+<option value="CHEMPAKAMANGALAM" label="THIRUVANANTHAPURAM · Branch code 70722"></option>
+<option value="CHEMPERI" label="KANNUR · Branch code 70894"></option>
+<option value="CHENGALAM" label="KOTTAYAM · Branch code 70398"></option>
+<option value="CHENGANNUR TOWN" label="ALAPUZHA · Branch code 70085"></option>
+<option value="CHENNITHALA" label="ALAPUZHA · Branch code 70304"></option>
+<option value="CHENTHITTA" label="THIRUVANANTHAPURAM · Branch code 70295"></option>
+<option value="CHERPLASSERY" label="PALAKKAD · Branch code 70251"></option>
+<option value="CHERTHALA" label="ALAPUZHA · Branch code 70081"></option>
+<option value="CHERUNNIYOOR" label="THIRUVANANTHAPURAM · Branch code 70347"></option>
+<option value="CHERUPUZHA" label="KANNUR · Branch code 70812"></option>
+<option value="CHERUR" label="THRISSUR · Branch code 70207"></option>
+<option value="CHERUTHURUTHY" label="THRISSUR · Branch code 70971"></option>
+<option value="CHETHAKAL" label="PATHANAMTHITTA · Branch code 71050"></option>
+<option value="CHETTIKULANGARA" label="ALAPUZHA · Branch code 70934"></option>
+<option value="CHETTIMUKKU" label="PATHANAMTHITTA · Branch code 70374"></option>
+<option value="CHETTIPPADI" label="MALAPPURAM · Branch code 70555"></option>
+<option value="CHINGAVANAM" label="KOTTAYAM · Branch code 70128"></option>
+<option value="CHIRAYINKEEZHU" label="THIRUVANANTHAPURAM · Branch code 70044"></option>
+<option value="CHITTAR" label="PATHANAMTHITTA · Branch code 70761"></option>
+<option value="CHITTARIKKAL" label="KASARAGOD · Branch code 71225"></option>
+<option value="CHITTOOR ROAD" label="ERNAKULAM · Branch code 71129"></option>
+<option value="CHITTOOR TOWN" label="PALAKKAD · Branch code 70178"></option>
+<option value="CHOKLI" label="KANNUR · Branch code 71115"></option>
+<option value="CHOVVUR CHERPU" label="THRISSUR · Branch code 70794"></option>
+<option value="CHOWARA" label="THIRUVANANTHAPURAM · Branch code 70950"></option>
+<option value="CHULLIYODE" label="WAYANAD · Branch code 70597"></option>
+<option value="CHUNGAM" label="KOTTAYAM · Branch code 70854"></option>
+<option value="CHUNGATHARA" label="MALAPPURAM · Branch code 71126"></option>
+<option value="CLAPPANA" label="KOLLAM · Branch code 70617"></option>
+<option value="COCHI- VYTTILA" label="ERNAKULAM · Branch code 70517"></option>
+<option value="COCHIN UNIVERSITY CAMPUS BRANCH" label="ERNAKULAM · Branch code 70235"></option>
+<option value="COLLECTORATE BRANCH KOTTAYAM" label="KOTTAYAM · Branch code 70492"></option>
+<option value="COLLECTORATE KASARAGOD" label="KASARAGOD · Branch code 70880"></option>
+<option value="COLLEGE ROAD KATTAKADA" label="THIRUVANANTHAPURAM · Branch code 70040"></option>
+<option value="COMMERCIAL BRANCH KOZHIKODE" label="KOZHIKODE · Branch code 71238"></option>
+<option value="CRANGANORE ( KODUNGALLUR)" label="THRISSUR · Branch code 70169"></option>
+<option value="DANAPADY" label="ALAPUZHA · Branch code 70440"></option>
+<option value="DESABHIMANI JUNCTION KALOOR" label="ERNAKULAM · Branch code 70327"></option>
+<option value="DEVALOKAM" label="KOTTAYAM · Branch code 70820"></option>
+<option value="DEVIKULAM" label="IDUKKI · Branch code 70129"></option>
+<option value="DHANUVACHAPURAM" label="THIRUVANANTHAPURAM · Branch code 70458"></option>
+<option value="EANGAPUZHA" label="KOZHIKODE · Branch code 71217"></option>
+<option value="EAST KALLADA" label="KOLLAM · Branch code 70326"></option>
+<option value="EDAKKARA" label="MALAPPURAM · Branch code 70710"></option>
+<option value="EDAMUTTOM CENTRE" label="THRISSUR · Branch code 70205"></option>
+<option value="EDAPPAL TOWN" label="MALAPPURAM · Branch code 70687"></option>
+<option value="EDAPPALLY" label="ERNAKULAM · Branch code 70218"></option>
+<option value="EDARICODE" label="MALAPPURAM · Branch code 70924"></option>
+<option value="EDATHALA" label="ERNAKULAM · Branch code 70375"></option>
+<option value="EDATHIRINJI" label="THRISSUR · Branch code 71243"></option>
+<option value="EDAVA" label="THIRUVANANTHAPURAM · Branch code 71068"></option>
+<option value="EDAVANNA" label="MALAPPURAM · Branch code 70798"></option>
+<option value="EDAVANNAPPARA" label="MALAPPURAM · Branch code 70797"></option>
+<option value="EDAYARIKAPUZHA PATHANAD" label="KOTTAYAM · Branch code 70376"></option>
+<option value="ELAMGULAM" label="KOTTAYAM · Branch code 70360"></option>
+<option value="ELAMKULAM" label="MALAPPURAM · Branch code 71127"></option>
+<option value="ELANADU" label="THRISSUR · Branch code 70553"></option>
+<option value="ELANTHOOR" label="PATHANAMTHITTA · Branch code 70762"></option>
+<option value="ELAPPARA" label="IDUKKI · Branch code 70104"></option>
+<option value="ELAVINTHITTA" label="PATHANAMTHITTA · Branch code 70243"></option>
+<option value="ENATHU" label="PATHANAMTHITTA · Branch code 70361"></option>
+<option value="ENGINEERING COLLEGE- KULATHOOR" label="THIRUVANANTHAPURAM · Branch code 70268"></option>
+<option value="ENIKKARA" label="THIRUVANANTHAPURAM · Branch code 70861"></option>
+<option value="ENNAKAD" label="ALAPUZHA · Branch code 70439"></option>
+<option value="ERAMALLOOR" label="ALAPUZHA · Branch code 70960"></option>
+<option value="ERANHIPALAM" label="KOZHIKODE · Branch code 70760"></option>
+<option value="ERATTUPETTA TOWN" label="KOTTAYAM · Branch code 70113"></option>
+<option value="ERAVIPEROOR" label="PATHANAMTHITTA · Branch code 70077"></option>
+<option value="ERAVIPURAM" label="KOLLAM · Branch code 70494"></option>
+<option value="ERIMAYUR" label="PALAKKAD · Branch code 70410"></option>
+<option value="EROOR" label="ERNAKULAM · Branch code 71236"></option>
+<option value="ERUMAPETTY" label="THRISSUR · Branch code 71078"></option>
+<option value="ERUMELY" label="KOTTAYAM · Branch code 70105"></option>
+<option value="ETTUMANOOR" label="KOTTAYAM · Branch code 70114"></option>
+<option value="EZHINJILLAM" label="PATHANAMTHITTA · Branch code 70438"></option>
+<option value="FAROOK COLLEGE" label="KOZHIKODE · Branch code 71123"></option>
+<option value="FEROKE" label="KOZHIKODE · Branch code 70191"></option>
+<option value="HARIPAD" label="ALAPUZHA · Branch code 70086"></option>
+<option value="HIGHWAY AROOR" label="ALAPUZHA · Branch code 70318"></option>
+<option value="HIGHWAY KUNDANOOR" label="ERNAKULAM · Branch code 71100"></option>
+<option value="IDUKKI" label="IDUKKI · Branch code 70027"></option>
+<option value="INDUSTRIAL ESTATE PAPPANAMCODE" label="THIRUVANANTHAPURAM · Branch code 70030"></option>
+<option value="INTERNATIONAL SERVICE BANKING BRANCH" label="ERNAKULAM · Branch code 70694"></option>
+<option value="IRINJALAKUDA TOWN" label="THRISSUR · Branch code 70170"></option>
+<option value="IRUMPANAM" label="ERNAKULAM · Branch code 71006"></option>
+<option value="IRUMPUPALAM" label="IDUKKI · Branch code 70592"></option>
+<option value="JAGATHY" label="THIRUVANANTHAPURAM · Branch code 70568"></option>
+<option value="K. S. E. B. ADMN. COMPLEX" label="THIRUVANANTHAPURAM · Branch code 70493"></option>
+<option value="KACHERITHAZHAM MUVATTUPUZHA" label="ERNAKULAM · Branch code 70151"></option>
+<option value="KADACHIRA" label="KANNUR · Branch code 71263"></option>
+<option value="KADAKKAL" label="KOLLAM · Branch code 70227"></option>
+<option value="KADAKKAVOOR" label="THIRUVANANTHAPURAM · Branch code 70038"></option>
+<option value="KADAMPANAD" label="PATHANAMTHITTA · Branch code 70281"></option>
+<option value="KADAPPATTOOR" label="KOTTAYAM · Branch code 70727"></option>
+<option value="KADAVANTHRA" label="ERNAKULAM · Branch code 70750"></option>
+<option value="KADAVATHUR" label="KANNUR · Branch code 70841"></option>
+<option value="KADUMENI" label="KASARAGOD · Branch code 70595"></option>
+<option value="KADUTHURUTHY" label="KOTTAYAM · Branch code 70427"></option>
+<option value="KAITHAMUKKU" label="THIRUVANANTHAPURAM · Branch code 70338"></option>
+<option value="KAKKATTIL" label="KOZHIKODE · Branch code 70744"></option>
+<option value="KAKKODI" label="KOZHIKODE · Branch code 70858"></option>
+<option value="KAKKOOR" label="ERNAKULAM · Branch code 70543"></option>
+<option value="KALADY THIRUVANANTHAPURAM" label="THIRUVANANTHAPURAM · Branch code 71192"></option>
+<option value="KALAKETTY" label="KOTTAYAM · Branch code 70130"></option>
+<option value="KALAMASSERY" label="ERNAKULAM · Branch code 70145"></option>
+<option value="KALANJOOR" label="PATHANAMTHITTA · Branch code 70663"></option>
+<option value="KALLACHI" label="KOZHIKODE · Branch code 70490"></option>
+<option value="KALLADIKODE" label="PALAKKAD · Branch code 70721"></option>
+<option value="KALLAMBALAM TOWN" label="THIRUVANANTHAPURAM · Branch code 70221"></option>
+<option value="KALLAMPALLY JUNCTION SREEKARYAM" label="THIRUVANANTHAPURAM · Branch code 70288"></option>
+<option value="KALLARA" label="THIRUVANANTHAPURAM · Branch code 70872"></option>
+<option value="KALLELI" label="PATHANAMTHITTA · Branch code 70586"></option>
+<option value="KALLEPULLY" label="PALAKKAD · Branch code 71080"></option>
+<option value="KALLOOPPARA" label="PATHANAMTHITTA · Branch code 70464"></option>
+<option value="KALLOORKAD" label="ERNAKULAM · Branch code 70204"></option>
+<option value="KALLUR" label="THRISSUR · Branch code 71265"></option>
+<option value="KALMANDAPAM BRANCH PALAKKAD" label="PALAKKAD · Branch code 71153"></option>
+<option value="KALPETTA" label="WAYANAD · Branch code 70192"></option>
+<option value="KANAKKARY" label="KOTTAYAM · Branch code 70954"></option>
+<option value="KANDALLOOR" label="ALAPUZHA · Branch code 70551"></option>
+<option value="KANDASSAMKADAVU" label="THRISSUR · Branch code 70791"></option>
+<option value="KANJIKUZHY" label="KOTTAYAM · Branch code 70222"></option>
+<option value="KANJIRAPALLY" label="KOTTAYAM · Branch code 70115"></option>
+<option value="KANNADI" label="PALAKKAD · Branch code 70518"></option>
+<option value="KANNANALLOOR" label="KOLLAM · Branch code 71121"></option>
+<option value="KANNAPURAM" label="KANNUR · Branch code 70373"></option>
+<option value="KANNUR ROAD KOZHIKODE" label="KOZHIKODE · Branch code 70188"></option>
+<option value="KANNUR UNIVERSITY" label="KANNUR · Branch code 70712"></option>
+<option value="KANNUR- CIVIL STATION" label="KANNUR · Branch code 70531"></option>
+<option value="KARAKKAD" label="ALAPUZHA · Branch code 71076"></option>
+<option value="KARAMANA" label="THIRUVANANTHAPURAM · Branch code 70031"></option>
+<option value="KAREELAKULANGARA" label="ALAPUZHA · Branch code 70874"></option>
+<option value="KARICODE" label="KOLLAM · Branch code 70870"></option>
+<option value="KARIKODE- THODUPUZHA" label="IDUKKI · Branch code 70886"></option>
+<option value="KARIMANNOOR" label="IDUKKI · Branch code 70161"></option>
+<option value="KARIMKUNNAM" label="IDUKKI · Branch code 70224"></option>
+<option value="KARIMPUZHA" label="PALAKKAD · Branch code 70346"></option>
+<option value="KARINKALKUZHY" label="KANNUR · Branch code 70981"></option>
+<option value="KARINKALLATHANI" label="MALAPPURAM · Branch code 71069"></option>
+<option value="KARIPPUTHATTU" label="KOTTAYAM · Branch code 70377"></option>
+<option value="KARIPUZHA" label="ALAPUZHA · Branch code 70436"></option>
+<option value="KARIVELLUR" label="KANNUR · Branch code 71168"></option>
+<option value="KARTHIKAPALLY" label="ALAPUZHA · Branch code 70076"></option>
+<option value="KARUKACHAL" label="KOTTAYAM · Branch code 70426"></option>
+<option value="KARUNAGAPPALLY" label="KOLLAM · Branch code 70056"></option>
+<option value="KARUVANCHAL" label="KANNUR · Branch code 70882"></option>
+<option value="KARUVARAKUNDU" label="MALAPPURAM · Branch code 70774"></option>
+<option value="KARYAVATTAM" label="THIRUVANANTHAPURAM · Branch code 70043"></option>
+<option value="KATTANAM" label="ALAPUZHA · Branch code 70822"></option>
+<option value="KATTAPPANA" label="IDUKKI · Branch code 70698"></option>
+<option value="KATTODU" label="PATHANAMTHITTA · Branch code 70437"></option>
+<option value="KAVIYOOR" label="PATHANAMTHITTA · Branch code 70462"></option>
+<option value="KAYAMKULAM TOWN" label="ALAPUZHA · Branch code 70078"></option>
+<option value="KAYYUR" label="KASARAGOD · Branch code 70573"></option>
+<option value="KAZHAKUTTAM" label="THIRUVANANTHAPURAM · Branch code 70445"></option>
+<option value="KECHERY" label="THRISSUR · Branch code 70730"></option>
+<option value="KEEZHMAD" label="ERNAKULAM · Branch code 70378"></option>
+<option value="KEEZHVAIPUR" label="PATHANAMTHITTA · Branch code 70388"></option>
+<option value="KERALA AGRICULTURE UNIVERSITY CAMPUS" label="THRISSUR · Branch code 70670"></option>
+<option value="KERALA UNIVERSITY OFFICE CAMPUS" label="THIRUVANANTHAPURAM · Branch code 70292"></option>
+<option value="KESAVADASAPURAM" label="THIRUVANANTHAPURAM · Branch code 70671"></option>
+<option value="KIDANGANNOOR" label="PATHANAMTHITTA · Branch code 70928"></option>
+<option value="KIDANGOOR" label="KOTTAYAM · Branch code 70106"></option>
+<option value="KILIKOLLUR" label="KOLLAM · Branch code 70397"></option>
+<option value="KILIMANOOR" label="THIRUVANANTHAPURAM · Branch code 70041"></option>
+<option value="KILLIMANGALAM" label="THRISSUR · Branch code 71244"></option>
+<option value="KIZHAKKAMBALAM" label="ERNAKULAM · Branch code 70425"></option>
+<option value="KIZHAKKE NADA GURUVAYUR" label="THRISSUR · Branch code 70257"></option>
+<option value="KIZHISSERY" label="MALAPPURAM · Branch code 71270"></option>
+<option value="KOCHALUMMOODU" label="ALAPUZHA · Branch code 70449"></option>
+<option value="KOCHUVELI" label="THIRUVANANTHAPURAM · Branch code 70424"></option>
+<option value="KODALY" label="THRISSUR · Branch code 70736"></option>
+<option value="KODANNUR" label="THRISSUR · Branch code 70351"></option>
+<option value="KODIMATHA" label="KOTTAYAM · Branch code 70379"></option>
+<option value="KODINJI" label="MALAPPURAM · Branch code 71162"></option>
+<option value="KODUMON" label="PATHANAMTHITTA · Branch code 70560"></option>
+<option value="KODUVALLY- PALAKUTTY" label="KOZHIKODE · Branch code 71001"></option>
+<option value="KOIPURAM" label="PATHANAMTHITTA · Branch code 70810"></option>
+<option value="KOLAGAPPARA" label="WAYANAD · Branch code 70615"></option>
+<option value="KOLAZHY" label="THRISSUR · Branch code 70824"></option>
+<option value="KOLENCHERRY" label="ERNAKULAM · Branch code 70159"></option>
+<option value="KOLENCHERRY M O S C M H" label="ERNAKULAM · Branch code 70498"></option>
+<option value="KOLLAM- ANANDAVALEESWARAM" label="KOLLAM · Branch code 70265"></option>
+<option value="KOLLAM- BEACH ROAD" label="KOLLAM · Branch code 70279"></option>
+<option value="KOLLAM- CIVIL STATION" label="KOLLAM · Branch code 70053"></option>
+<option value="KONDOTTY" label="MALAPPURAM · Branch code 70311"></option>
+<option value="KONNI" label="PATHANAMTHITTA · Branch code 70062"></option>
+<option value="KOODALLOOR" label="KOTTAYAM · Branch code 70400"></option>
+<option value="KOORIYAD" label="MALAPPURAM · Branch code 70610"></option>
+<option value="KOOROPADA" label="KOTTAYAM · Branch code 70363"></option>
+<option value="KOOTHATTUKULAM" label="ERNAKULAM · Branch code 70148"></option>
+<option value="KOOTTICKAL" label="KOTTAYAM · Branch code 70131"></option>
+<option value="KOPPAM" label="PALAKKAD · Branch code 70969"></option>
+<option value="KORATTY" label="THRISSUR · Branch code 70206"></option>
+<option value="KORUTHODE" label="KOTTAYAM · Branch code 70380"></option>
+<option value="KOTHAMANGALAM TOWN" label="ERNAKULAM · Branch code 70149"></option>
+<option value="KOTHANALLUR" label="KOTTAYAM · Branch code 70446"></option>
+<option value="KOTTAKKAL" label="MALAPPURAM · Branch code 70269"></option>
+<option value="KOTTANGAL" label="PATHANAMTHITTA · Branch code 70463"></option>
+<option value="KOTTAPPADY" label="ERNAKULAM · Branch code 70829"></option>
+<option value="KOTTAPURAM" label="THRISSUR · Branch code 70219"></option>
+<option value="KOTTARAKARA" label="KOLLAM · Branch code 70063"></option>
+<option value="KOTTARAKARA TEMPLE JUNCTION" label="KOLLAM · Branch code 70241"></option>
+<option value="KOTTARAKARA- PULAMON JUNCTION" label="KOLLAM · Branch code 70272"></option>
+<option value="KOTTAYAM CIVIL STATION" label="KOTTAYAM · Branch code 70101"></option>
+<option value="KOTTAYAM TOWN" label="KOTTAYAM · Branch code 70102"></option>
+<option value="KOTTAYAM- C M S COLLEGE CAMPUS" label="KOTTAYAM · Branch code 70484"></option>
+<option value="KOTTIYAM" label="KOLLAM · Branch code 70352"></option>
+<option value="KOWDIAR" label="THIRUVANANTHAPURAM · Branch code 70020"></option>
+<option value="KOYILANDY TOWN" label="KOZHIKODE · Branch code 70684"></option>
+<option value="KOZHA" label="KOTTAYAM · Branch code 70521"></option>
+<option value="KOZHENCHERRY TOWN" label="PATHANAMTHITTA · Branch code 70068"></option>
+<option value="KOZHINJAMPARA" label="PALAKKAD · Branch code 70185"></option>
+<option value="KOZHUVALLUR" label="ALAPUZHA · Branch code 70474"></option>
+<option value="KOZHUVANAL" label="KOTTAYAM · Branch code 70364"></option>
+<option value="KUDALLUR" label="PALAKKAD · Branch code 70486"></option>
+<option value="KUDAPPANAKUNNU" label="THIRUVANANTHAPURAM · Branch code 70796"></option>
+<option value="KUDAPPANAMOODU" label="THIRUVANANTHAPURAM · Branch code 70588"></option>
+<option value="KULANADA" label="PATHANAMTHITTA · Branch code 70353"></option>
+<option value="KULASERKHARAMANGALAM" label="KOTTAYAM · Branch code 70354"></option>
+<option value="KULATHUPUZHA" label="KOLLAM · Branch code 70731"></option>
+<option value="KUMARAKOM" label="KOTTAYAM · Branch code 70116"></option>
+<option value="KUMARAMPUTHUR" label="PALAKKAD · Branch code 70927"></option>
+<option value="KUMARANALLOOR" label="KOTTAYAM · Branch code 70677"></option>
+<option value="KUMBALANGY" label="ERNAKULAM · Branch code 70150"></option>
+<option value="KUMBANAD" label="PATHANAMTHITTA · Branch code 70099"></option>
+<option value="KUMILY" label="IDUKKI · Branch code 70132"></option>
+<option value="KUMMIL" label="KOLLAM · Branch code 70608"></option>
+<option value="KUNDARA" label="KOLLAM · Branch code 70064"></option>
+<option value="KUNNAMANGALAM TOWN" label="KOZHIKODE · Branch code 70401"></option>
+<option value="KUNNAMKULAM TOWN" label="THRISSUR · Branch code 70171"></option>
+<option value="KUNNAMTHANAM" label="PATHANAMTHITTA · Branch code 70956"></option>
+<option value="KURAMPALA" label="PATHANAMTHITTA · Branch code 71182"></option>
+<option value="KURATHIAD" label="ALAPUZHA · Branch code 70274"></option>
+<option value="KURAVANKONAM" label="THIRUVANANTHAPURAM · Branch code 71125"></option>
+<option value="KURICHY" label="KOTTAYAM · Branch code 70262"></option>
+<option value="KURKANCHERRY" label="THRISSUR · Branch code 70174"></option>
+<option value="KURUPPAMPADY" label="ERNAKULAM · Branch code 71101"></option>
+<option value="KURUPPANTHARA" label="KOTTAYAM · Branch code 70136"></option>
+<option value="KUTTAPUZHA" label="PATHANAMTHITTA · Branch code 70309"></option>
+<option value="KUTTIADI" label="KOZHIKODE · Branch code 70638"></option>
+<option value="KUTTICKAL" label="KOTTAYAM · Branch code 71264"></option>
+<option value="KUTTIKOL" label="KASARAGOD · Branch code 71117"></option>
+<option value="KUTTIPURAM" label="MALAPPURAM · Branch code 70195"></option>
+<option value="KUTTITHERUVU" label="ALAPUZHA · Branch code 70961"></option>
+<option value="KUZHALMANNAM" label="PALAKKAD · Branch code 70324"></option>
+<option value="KUZHUR" label="THRISSUR · Branch code 70310"></option>
+<option value="LIC JUNCTION PATTOM" label="THIRUVANANTHAPURAM · Branch code 70212"></option>
+<option value="M C ROAD VALAKOM" label="KOLLAM · Branch code 70833"></option>
+<option value="M. G. M. HIGH SCHOOL THIRUVALLA" label="PATHANAMTHITTA · Branch code 70482"></option>
+<option value="M. G. UNIVERSITY CAMPUS BRANCH" label="KOTTAYAM · Branch code 70669"></option>
+<option value="MADAPPALLY" label="KOTTAYAM · Branch code 70414"></option>
+<option value="MADATHARA" label="THIRUVANANTHAPURAM · Branch code 70525"></option>
+<option value="MADAVOOR" label="THIRUVANANTHAPURAM · Branch code 70286"></option>
+<option value="MAIDANAM VARKALA" label="THIRUVANANTHAPURAM · Branch code 70048"></option>
+<option value="MAIN ROAD NORTH PARUR" label="ERNAKULAM · Branch code 70153"></option>
+<option value="MAIN TREASURY TRIVANDRUM" label="THIRUVANANTHAPURAM · Branch code 70252"></option>
+<option value="MAKKARAPARAMBA" label="MALAPPURAM · Branch code 71163"></option>
+<option value="MALAPPATTAM" label="KANNUR · Branch code 70599"></option>
+<option value="MALAPPURAM CIVIL STATION" label="MALAPPURAM · Branch code 70507"></option>
+<option value="MALAYALAPUZHA" label="PATHANAMTHITTA · Branch code 70407"></option>
+<option value="MALAYATTOOR" label="ERNAKULAM · Branch code 70959"></option>
+<option value="MALAYINKEEZHU" label="THIRUVANANTHAPURAM · Branch code 70738"></option>
+<option value="MALLAPALLY" label="PATHANAMTHITTA · Branch code 70087"></option>
+<option value="MALLASSERY" label="PATHANAMTHITTA · Branch code 70329"></option>
+<option value="MAMMOOD" label="KOTTAYAM · Branch code 70284"></option>
+<option value="MAMOM ATTINGAL" label="THIRUVANANTHAPURAM · Branch code 70039"></option>
+<option value="MANACAUD" label="THIRUVANANTHAPURAM · Branch code 70024"></option>
+<option value="MANANTHAVADI" label="WAYANAD · Branch code 70321"></option>
+<option value="MANARCAUD" label="KOTTAYAM · Branch code 70233"></option>
+<option value="MANGANAM" label="KOTTAYAM · Branch code 70471"></option>
+<option value="MANIMALA" label="KOTTAYAM · Branch code 70117"></option>
+<option value="MANIPUZHA" label="PATHANAMTHITTA · Branch code 70466"></option>
+<option value="MANJAPRA" label="ERNAKULAM · Branch code 71200"></option>
+<option value="MANJERI TOWN" label="MALAPPURAM · Branch code 70197"></option>
+<option value="MANJESWAR" label="KASARAGOD · Branch code 70355"></option>
+<option value="MANKADA" label="MALAPPURAM · Branch code 70306"></option>
+<option value="MANKAVU" label="KOZHIKODE · Branch code 70535"></option>
+<option value="MANNADY" label="PATHANAMTHITTA · Branch code 71269"></option>
+<option value="MANNAM" label="ERNAKULAM · Branch code 70947"></option>
+<option value="MANNAR" label="ALAPUZHA · Branch code 70088"></option>
+<option value="MANNARKAD" label="PALAKKAD · Branch code 70181"></option>
+<option value="MANNUR" label="PALAKKAD · Branch code 70600"></option>
+<option value="MARADY" label="ERNAKULAM · Branch code 70504"></option>
+<option value="MARANGATTUPALLY" label="KOTTAYAM · Branch code 70234"></option>
+<option value="MARATHANCODE" label="THRISSUR · Branch code 70382"></option>
+<option value="MATHAMANGALAM" label="KANNUR · Branch code 71071"></option>
+<option value="MATTAKKARA" label="KOTTAYAM · Branch code 70349"></option>
+<option value="MATTANOOR" label="KANNUR · Branch code 70208"></option>
+<option value="MAVELIKKARA TOWN" label="ALAPUZHA · Branch code 70089"></option>
+<option value="MAVOOR ROAD" label="KOZHIKODE · Branch code 70561"></option>
+<option value="MAYYANAD" label="KOLLAM · Branch code 70057"></option>
+<option value="MAYYIL" label="KANNUR · Branch code 71024"></option>
+<option value="MEDICAL COLLEGE- KOTTAYAM" label="KOTTAYAM · Branch code 70111"></option>
+<option value="MEENADOM" label="KOTTAYAM · Branch code 70485"></option>
+<option value="MEENANGADI" label="WAYANAD · Branch code 70725"></option>
+<option value="MELADI" label="KOZHIKODE · Branch code 70946"></option>
+<option value="MELATTUR" label="MALAPPURAM · Branch code 70220"></option>
+<option value="MELE CHOVVA" label="KANNUR · Branch code 70980"></option>
+<option value="MELPADAM" label="ALAPUZHA · Branch code 70365"></option>
+<option value="MELUKAVUMATTOM" label="KOTTAYAM · Branch code 70138"></option>
+<option value="MEPPAYUR" label="KOZHIKODE · Branch code 70420"></option>
+<option value="MEPRAL" label="PATHANAMTHITTA · Branch code 70100"></option>
+<option value="METRO STATION BRANCH ALUVA" label="ERNAKULAM · Branch code 71019"></option>
+<option value="METRO STATION MG ROAD" label="ERNAKULAM · Branch code 70142"></option>
+<option value="MINALUR ATHANI" label="THRISSUR · Branch code 70786"></option>
+<option value="MONGAM" label="MALAPPURAM · Branch code 70840"></option>
+<option value="MONIPALLY" label="KOTTAYAM · Branch code 70134"></option>
+<option value="MOOKKANNOOR" label="ERNAKULAM · Branch code 71268"></option>
+<option value="MOOLAMATTOM" label="IDUKKI · Branch code 70258"></option>
+<option value="MUDICAL" label="ERNAKULAM · Branch code 70305"></option>
+<option value="MUHAMMA" label="ALAPUZHA · Branch code 70299"></option>
+<option value="MUKKOOTTUTHARA" label="KOTTAYAM · Branch code 70862"></option>
+<option value="MULANTHURUTHY" label="ERNAKULAM · Branch code 70334"></option>
+<option value="MULLARINGAD" label="IDUKKI · Branch code 70618"></option>
+<option value="MULLASSERY" label="THRISSUR · Branch code 70487"></option>
+<option value="MUNDAKAYAM" label="KOTTAYAM · Branch code 70133"></option>
+<option value="MUNDATHANAM" label="KOTTAYAM · Branch code 70366"></option>
+<option value="MUNDUR" label="PALAKKAD · Branch code 71028"></option>
+<option value="MUNNAR" label="IDUKKI · Branch code 70135"></option>
+<option value="MUTHOLY" label="KOTTAYAM · Branch code 71186"></option>
+<option value="MUTTOM" label="IDUKKI · Branch code 70441"></option>
+<option value="N R I BRANCH MAVELIKKARA" label="ALAPUZHA · Branch code 70689"></option>
+<option value="N R I BRANCH- ATTINGAL" label="THIRUVANANTHAPURAM · Branch code 70631"></option>
+<option value="NADAPURAM" label="KOZHIKODE · Branch code 70856"></option>
+<option value="NADUVATTOM BEYPORE" label="KOZHIKODE · Branch code 70190"></option>
+<option value="NAGAMPADAM" label="KOTTAYAM · Branch code 70732"></option>
+<option value="NALANCHIRA" label="THIRUVANANTHAPURAM · Branch code 70639"></option>
+<option value="NALLILA" label="KOLLAM · Branch code 70491"></option>
+<option value="NANDI" label="KOZHIKODE · Branch code 71262"></option>
+<option value="NANTHENCODE P. B. BRANCH" label="THIRUVANANTHAPURAM · Branch code 70690"></option>
+<option value="NARAKKAL" label="ERNAKULAM · Branch code 70152"></option>
+<option value="NARANGANAM" label="PATHANAMTHITTA · Branch code 70069"></option>
+<option value="NARIKKUNI" label="KOZHIKODE · Branch code 71096"></option>
+<option value="NARIYAPURAM" label="PATHANAMTHITTA · Branch code 70512"></option>
+<option value="NATTUKAL" label="PALAKKAD · Branch code 70522"></option>
+<option value="NAYARAMBALAM" label="ERNAKULAM · Branch code 70451"></option>
+<option value="NEDUMANGAD" label="THIRUVANANTHAPURAM · Branch code 70036"></option>
+<option value="NEDUMKANDAM" label="IDUKKI · Branch code 70216"></option>
+<option value="NEDUMKUNNAM" label="KOTTAYAM · Branch code 70118"></option>
+<option value="NEENDOOR" label="KOTTAYAM · Branch code 70119"></option>
+<option value="NELLIKUZHY" label="ERNAKULAM · Branch code 70992"></option>
+<option value="NELLIMALA" label="PATHANAMTHITTA · Branch code 70509"></option>
+<option value="NELLIMOODU" label="THIRUVANANTHAPURAM · Branch code 70544"></option>
+<option value="NEMMARA TOWN" label="PALAKKAD · Branch code 70182"></option>
+<option value="NEW ADMINISTRATIVE COMPLEX- POOJAPURA" label="THIRUVANANTHAPURAM · Branch code 70502"></option>
+<option value="NEYYATTINKARA" label="THIRUVANANTHAPURAM · Branch code 70042"></option>
+<option value="NH.17 VATANAPALLY" label="THRISSUR · Branch code 70641"></option>
+<option value="NILAMBUR TOWN" label="MALAPPURAM · Branch code 70194"></option>
+<option value="NILAMEL" label="KOLLAM · Branch code 70228"></option>
+<option value="NILESWAR TOWN" label="KASARAGOD · Branch code 70675"></option>
+<option value="NIRANAM - KIZHAKKUMBHAGAM" label="PATHANAMTHITTA · Branch code 70461"></option>
+<option value="NOORANAD" label="ALAPUZHA · Branch code 70091"></option>
+<option value="NRI BRANCH THIRUVALLA" label="PATHANAMTHITTA · Branch code 70628"></option>
+<option value="NRI TIRUR" label="MALAPPURAM · Branch code 70632"></option>
+<option value="OACHIRA" label="KOLLAM · Branch code 70282"></option>
+<option value="ODAKKALI" label="ERNAKULAM · Branch code 70519"></option>
+<option value="ODANAVATTOM" label="KOLLAM · Branch code 70832"></option>
+<option value="OLAVAKODE TOWN" label="PALAKKAD · Branch code 71093"></option>
+<option value="OLLUKARA" label="THRISSUR · Branch code 70210"></option>
+<option value="OLLUR" label="THRISSUR · Branch code 70266"></option>
+<option value="OMALLOOR" label="PATHANAMTHITTA · Branch code 70331"></option>
+<option value="OORUTTAMBALAM" label="THIRUVANANTHAPURAM · Branch code 70356"></option>
+<option value="ORKATTERY" label="KOZHIKODE · Branch code 70799"></option>
+<option value="OTHARA" label="PATHANAMTHITTA · Branch code 70332"></option>
+<option value="OTTASEKHARAMANGALAM" label="THIRUVANANTHAPURAM · Branch code 70322"></option>
+<option value="OTTUPARA" label="THRISSUR · Branch code 71266"></option>
+<option value="OYUR" label="KOLLAM · Branch code 70724"></option>
+<option value="OZHALAPATHY" label="PALAKKAD · Branch code 71255"></option>
+<option value="PAINGOTTOOR" label="ERNAKULAM · Branch code 71260"></option>
+<option value="PAIPAD" label="KOTTAYAM · Branch code 70107"></option>
+<option value="PAIPRA" label="ERNAKULAM · Branch code 70469"></option>
+<option value="PALAI" label="KOTTAYAM · Branch code 70120"></option>
+<option value="PALAPATTY" label="MALAPPURAM · Branch code 70556"></option>
+<option value="PALARIVATTOM TOWN" label="ERNAKULAM · Branch code 70403"></option>
+<option value="PALLICKAL THIRUVANANTHAPURAM" label="THIRUVANANTHAPURAM · Branch code 70503"></option>
+<option value="PALLIPAD" label="ALAPUZHA · Branch code 70260"></option>
+<option value="PALLIPPURAM" label="THIRUVANANTHAPURAM · Branch code 70406"></option>
+<option value="PALLITHURA" label="THIRUVANANTHAPURAM · Branch code 70045"></option>
+<option value="PALLOM" label="KOTTAYAM · Branch code 70217"></option>
+<option value="PALLURUTHY" label="ERNAKULAM · Branch code 71188"></option>
+<option value="PALODE" label="THIRUVANANTHAPURAM · Branch code 70523"></option>
+<option value="PAMPADY TOWN" label="KOTTAYAM · Branch code 70108"></option>
+<option value="PAMPAKUDA" label="ERNAKULAM · Branch code 70290"></option>
+<option value="PANAMPILLY NAGAR ERNAKULAM" label="ERNAKULAM · Branch code 70658"></option>
+<option value="PANDALAM" label="PATHANAMTHITTA · Branch code 70079"></option>
+<option value="PANDIKKAD" label="MALAPPURAM · Branch code 70814"></option>
+<option value="PANG SOUTH PANG" label="MALAPPURAM · Branch code 70621"></option>
+<option value="PANGODE" label="THIRUVANANTHAPURAM · Branch code 70546"></option>
+<option value="PANOOR" label="KANNUR · Branch code 70636"></option>
+<option value="PANTHEERANKAVU" label="KOZHIKODE · Branch code 71161"></option>
+<option value="PAPPINISSERI" label="KANNUR · Branch code 70202"></option>
+<option value="PARAKODE" label="PATHANAMTHITTA · Branch code 70070"></option>
+<option value="PARAMEKKAVU TEMPLE BRANCH THRISSUR" label="THRISSUR · Branch code 70166"></option>
+<option value="PARASSALA" label="THIRUVANANTHAPURAM · Branch code 70037"></option>
+<option value="PARATHODE" label="IDUKKI · Branch code 70514"></option>
+<option value="PARIPALLY" label="KOLLAM · Branch code 70074"></option>
+<option value="PARIYARAM" label="KOTTAYAM · Branch code 70510"></option>
+<option value="PARLI" label="PALAKKAD · Branch code 70183"></option>
+<option value="PATHANAMTHITTA" label="PATHANAMTHITTA · Branch code 70058"></option>
+<option value="PATHANAPURAM" label="KOLLAM · Branch code 70072"></option>
+<option value="PATHIRAPPALLY" label="ALAPUZHA · Branch code 70317"></option>
+<option value="PATTAMBI" label="PALAKKAD · Branch code 70186"></option>
+<option value="PATTANAKAD" label="ALAPUZHA · Branch code 70267"></option>
+<option value="PATTAZHI" label="KOLLAM · Branch code 70948"></option>
+<option value="PATTIMATTOM" label="ERNAKULAM · Branch code 70931"></option>
+<option value="PATTURAIKKAL" label="THRISSUR · Branch code 70664"></option>
+<option value="PAYIPAD" label="ALAPUZHA · Branch code 70092"></option>
+<option value="PAYYANADAM" label="PALAKKAD · Branch code 71239"></option>
+<option value="PAYYANNUR" label="KANNUR · Branch code 70259"></option>
+<option value="PAYYAVOOR" label="KANNUR · Branch code 70979"></option>
+<option value="PAZHAKULAM" label="PATHANAMTHITTA · Branch code 70846"></option>
+<option value="PAZHANGAD" label="ERNAKULAM · Branch code 70605"></option>
+<option value="PAZHAVEEDU- THIRUVAMPADY" label="ALAPUZHA · Branch code 70528"></option>
+<option value="PAZHAYANNUR" label="THRISSUR · Branch code 70921"></option>
+<option value="PBB ADOOR" label="PATHANAMTHITTA · Branch code 70779"></option>
+<option value="PBB ALAPPUZHA" label="ALAPUZHA · Branch code 71016"></option>
+<option value="PBB AMBALAMUKKU" label="THIRUVANANTHAPURAM · Branch code 70923"></option>
+<option value="PBB CALICUT" label="KOZHIKODE · Branch code 70758"></option>
+<option value="PBB CHERTHALA" label="ALAPUZHA · Branch code 71015"></option>
+<option value="PBB KADAPPAKKADA KOLLAM" label="KOLLAM · Branch code 70773"></option>
+<option value="PBB KAYAMKULAM" label="ALAPUZHA · Branch code 71011"></option>
+<option value="PBB KODUNGALLOOR" label="THRISSUR · Branch code 71021"></option>
+<option value="PBB KOZHENCHERRY SBIN007100 2 BUILDING NO.V/66-H, PARAPUZHA ANSKA COMPLEX KOZHENCHERRY THEKKEMALA 689654 sbi.71002@sbi.co.in 22957 THIRUVANANTHAPURAM KERALA PATHANAMTHITTA 71003 SEETHATHODE" label="PATHANAMTHITTA · Branch code 71002"></option>
+<option value="PBB KUNDARA" label="KOLLAM · Branch code 71007"></option>
+<option value="PBB MANNAR" label="ALAPUZHA · Branch code 71012"></option>
+<option value="PBB NEDUMANGAD" label="THIRUVANANTHAPURAM · Branch code 70884"></option>
+<option value="PBB OACHIRA" label="KOLLAM · Branch code 71120"></option>
+<option value="PBB PALAKKAD" label="PALAKKAD · Branch code 70863"></option>
+<option value="PBB PATHANAMTHITTA" label="PATHANAMTHITTA · Branch code 70703"></option>
+<option value="PBB TANA" label="THRISSUR · Branch code 70790"></option>
+<option value="PBB THRISSUR ROUND SOUTH" label="THRISSUR · Branch code 70680"></option>
+<option value="PBB VADAKARA" label="KOZHIKODE · Branch code 71029"></option>
+<option value="PEERMADE" label="IDUKKI · Branch code 70109"></option>
+<option value="PERAVOOR" label="KANNUR · Branch code 70878"></option>
+<option value="PERINGATHUR" label="KANNUR · Branch code 70367"></option>
+<option value="PERINGODE" label="PALAKKAD · Branch code 70495"></option>
+<option value="PERINJANAM" label="THRISSUR · Branch code 70896"></option>
+<option value="PERINTALMANNA" label="MALAPPURAM · Branch code 70198"></option>
+<option value="PEROOR" label="KOTTAYAM · Branch code 70431"></option>
+<option value="PEROORKADA- INDIRANAGAR" label="THIRUVANANTHAPURAM · Branch code 70434"></option>
+<option value="PERUMANNA" label="KOZHIKODE · Branch code 70821"></option>
+<option value="PERUMBALA" label="KASARAGOD · Branch code 71250"></option>
+<option value="PERUMBAVOOR TOWN" label="ERNAKULAM · Branch code 70154"></option>
+<option value="PERUMKADAVILA" label="THIRUVANANTHAPURAM · Branch code 71190"></option>
+<option value="PERUMPALAM" label="ALAPUZHA · Branch code 70435"></option>
+<option value="PERUMPILAVU" label="THRISSUR · Branch code 70734"></option>
+<option value="PERUNKUZHI" label="THIRUVANANTHAPURAM · Branch code 70312"></option>
+<option value="PERUR ( PATHIRIPALA)" label="PALAKKAD · Branch code 70237"></option>
+<option value="PERUVA" label="KOTTAYAM · Branch code 70869"></option>
+<option value="PETTAH BRANCH" label="THIRUVANANTHAPURAM · Branch code 70213"></option>
+<option value="PEYADU" label="THIRUVANANTHAPURAM · Branch code 70383"></option>
+<option value="PILATHARA" label="KANNUR · Branch code 71214"></option>
+<option value="PINARAYI" label="KANNUR · Branch code 71105"></option>
+<option value="PIRAVOM TOWN" label="ERNAKULAM · Branch code 70160"></option>
+<option value="PIZHAKU" label="KOTTAYAM · Branch code 70976"></option>
+<option value="PLASSANAL" label="KOTTAYAM · Branch code 70480"></option>
+<option value="POLAYATHODE" label="KOLLAM · Branch code 70871"></option>
+<option value="PONKUNNAM" label="KOTTAYAM · Branch code 70137"></option>
+<option value="PONNANI" label="MALAPPURAM · Branch code 70199"></option>
+<option value="POOCHAKAL" label="ALAPUZHA · Branch code 70298"></option>
+<option value="POOJAPURA" label="THIRUVANANTHAPURAM · Branch code 70032"></option>
+<option value="POOKKOTTUMPADAM" label="MALAPPURAM · Branch code 70775"></option>
+<option value="POONTHURA" label="THIRUVANANTHAPURAM · Branch code 70422"></option>
+<option value="POOVACHAL" label="THIRUVANANTHAPURAM · Branch code 70302"></option>
+<option value="POOVAR" label="THIRUVANANTHAPURAM · Branch code 70046"></option>
+<option value="POOVARANY" label="KOTTAYAM · Branch code 70121"></option>
+<option value="POOVATHILAPPU" label="KOTTAYAM · Branch code 70529"></option>
+<option value="POOYAPALLY" label="KOLLAM · Branch code 70073"></option>
+<option value="PORUVAZHY" label="KOLLAM · Branch code 70594"></option>
+<option value="POTHENCODE" label="THIRUVANANTHAPURAM · Branch code 70018"></option>
+<option value="POTTENKAD" label="IDUKKI · Branch code 70527"></option>
+<option value="PRAVACHAMBALAM" label="THIRUVANANTHAPURAM · Branch code 70307"></option>
+<option value="PRAVASI SEVA BRANCH ERNAKULAM" label="ERNAKULAM · Branch code 70642"></option>
+<option value="PRAVASI SEVA KOTTAKKAL" label="MALAPPURAM · Branch code 71022"></option>
+<option value="PUDUKAD" label="THRISSUR · Branch code 70173"></option>
+<option value="PULAMANTHOLE" label="MALAPPURAM · Branch code 70742"></option>
+<option value="PULICKALKAVALA" label="KOTTAYAM · Branch code 70953"></option>
+<option value="PULINCUNNOO" label="ALAPUZHA · Branch code 70358"></option>
+<option value="PULIYARAKONAM" label="THIRUVANANTHAPURAM · Branch code 71176"></option>
+<option value="PULIYUR" label="ALAPUZHA · Branch code 70412"></option>
+<option value="PULLAD" label="PATHANAMTHITTA · Branch code 70640"></option>
+<option value="PULPARAMBA" label="MALAPPURAM · Branch code 70593"></option>
+<option value="PUNALUR" label="KOLLAM · Branch code 70834"></option>
+<option value="PUNALUR TOWN" label="KOLLAM · Branch code 70059"></option>
+<option value="PUNCHAVAYAL" label="KOTTAYAM · Branch code 70429"></option>
+<option value="PUNNAD" label="KANNUR · Branch code 70384"></option>
+<option value="PUNNALA" label="KOLLAM · Branch code 70511"></option>
+<option value="PUNNAMPARAMBU" label="THRISSUR · Branch code 70342"></option>
+<option value="PUNNAPRA" label="ALAPUZHA · Branch code 70215"></option>
+<option value="PUNNAYURKULAM" label="THRISSUR · Branch code 70163"></option>
+<option value="PURAKKAD" label="ALAPUZHA · Branch code 70475"></option>
+<option value="PUTHANATHANI" label="MALAPPURAM · Branch code 70711"></option>
+<option value="PUTHENCHANTHAI" label="THIRUVANANTHAPURAM · Branch code 70026"></option>
+<option value="PUTHENCHIRA" label="THRISSUR · Branch code 71124"></option>
+<option value="PUTHENVELIKKARA" label="ERNAKULAM · Branch code 71259"></option>
+<option value="PUTHIYANGADI MADAI" label="KANNUR · Branch code 70240"></option>
+<option value="PUTHIYARA" label="KOZHIKODE · Branch code 70576"></option>
+<option value="PUTHOOR" label="KOLLAM · Branch code 70293"></option>
+<option value="PUTHUKURUCHY" label="THIRUVANANTHAPURAM · Branch code 70047"></option>
+<option value="PUTHUPALLY" label="KOTTAYAM · Branch code 70122"></option>
+<option value="PUTHUR- PALAKKAD" label="PALAKKAD · Branch code 70723"></option>
+<option value="RAILWAY STATION ROAD KASARAGOD" label="KASARAGOD · Branch code 70201"></option>
+<option value="RAJAKUMARI" label="IDUKKI · Branch code 70453"></option>
+<option value="RAMANATTUKARA TOWN" label="KOZHIKODE · Branch code 70859"></option>
+<option value="RAMANKARY" label="ALAPUZHA · Branch code 70097"></option>
+<option value="RAMAPURAM" label="KOTTAYAM · Branch code 70123"></option>
+<option value="RANNI" label="PATHANAMTHITTA · Branch code 70065"></option>
+<option value="RAVIPURAM" label="ERNAKULAM · Branch code 70261"></option>
+<option value="ROBINSON ROAD BRANCH PALAKKAD" label="PALAKKAD · Branch code 70940"></option>
+<option value="S C T ENGINEERING COLLEGE" label="THIRUVANANTHAPURAM · Branch code 70851"></option>
+<option value="S. B. COLLEGE CHANGANASSERY" label="KOTTAYAM · Branch code 70394"></option>
+<option value="SAKTHIKULANGARA" label="KOLLAM · Branch code 70066"></option>
+<option value="SANGHUMUGHOM" label="THIRUVANANTHAPURAM · Branch code 70025"></option>
+<option value="SANSKRIT UNIVERSITY KALADY" label="ERNAKULAM · Branch code 70717"></option>
+<option value="SANTHI NAGAR" label="THIRUVANANTHAPURAM · Branch code 70263"></option>
+<option value="SASTHAMANGALAM" label="THIRUVANANTHAPURAM · Branch code 70023"></option>
+<option value="SASTHAMCOTTA" label="KOLLAM · Branch code 70450"></option>
+<option value="SBI PALLICKATHODU" label="KOTTAYAM · Branch code 70247"></option>
+<option value="SBI PUDUSSERY" label="PALAKKAD · Branch code 70176"></option>
+<option value="SBI WADAKANCHERRY" label="THRISSUR · Branch code 70172"></option>
+<option value="SCHOOL JUNCTION ELAMAKKARA" label="ERNAKULAM · Branch code 70782"></option>
+<option value="SHORANUR TOWN" label="PALAKKAD · Branch code 70787"></option>
+<option value="SILVER HILLS" label="KOZHIKODE · Branch code 71030"></option>
+<option value="SME ALAPPUZHA" label="ALAPUZHA · Branch code 70659"></option>
+<option value="SME BRANCH THODUPUZHA" label="IDUKKI · Branch code 70933"></option>
+<option value="SME CHALAKUDY" label="THRISSUR · Branch code 71020"></option>
+<option value="SME KALAMASSERY" label="ERNAKULAM · Branch code 70291"></option>
+<option value="SME KANHANGAD" label="KASARAGOD · Branch code 70402"></option>
+<option value="SME KOTTAYAM" label="KOTTAYAM · Branch code 70652"></option>
+<option value="SME MALAPPURAM" label="MALAPPURAM · Branch code 70196"></option>
+<option value="SME OTTAPPALAM" label="PALAKKAD · Branch code 70392"></option>
+<option value="SME PATHANAMTHITTA" label="PATHANAMTHITTA · Branch code 70330"></option>
+<option value="SME PERUMBAVOOR" label="ERNAKULAM · Branch code 71017"></option>
+<option value="SOORANAD" label="KOLLAM · Branch code 71240"></option>
+<option value="SOUTH KALLARA" label="KOTTAYAM · Branch code 70423"></option>
+<option value="SOUTH PARAVUR" label="KOLLAM · Branch code 70071"></option>
+<option value="SPBB KANNUR" label="KANNUR · Branch code 70879"></option>
+<option value="SPL NRI PREM BKG CENTRE THIRUVANANTHAPU" label="THIRUVANANTHAPURAM · Branch code 70828"></option>
+<option value="SREEKANDAPURAM" label="KANNUR · Branch code 70452"></option>
+<option value="SRIKRISHNAPURAM" label="PALAKKAD · Branch code 70497"></option>
+<option value="STATE BANK OF INDIA VADAVUCODE" label="ERNAKULAM · Branch code 70316"></option>
+<option value="SULTHAN BATHERY" label="WAYANAD · Branch code 70193"></option>
+<option value="T B ROAD PALAKKAD" label="PALAKKAD · Branch code 70177"></option>
+<option value="T. V. PURAM" label="KOTTAYAM · Branch code 70479"></option>
+<option value="TANUR" label="MALAPPURAM · Branch code 70211"></option>
+<option value="TATTAMANGALAM" label="PALAKKAD · Branch code 70788"></option>
+<option value="TEEKOY" label="KOTTAYAM · Branch code 70341"></option>
+<option value="TEJASWINI TECHNOPARK Trivandrum" label="THIRUVANANTHAPURAM · Branch code 70737"></option>
+<option value="TEMPLE VIEW THIRUVANANTHAPURAM" label="THIRUVANANTHAPURAM · Branch code 70481"></option>
+<option value="THADIYOOR" label="PATHANAMTHITTA · Branch code 70244"></option>
+<option value="THAIKKATTUKARA" label="ERNAKULAM · Branch code 70368"></option>
+<option value="THALAYOLAPARAMBU" label="KOTTAYAM · Branch code 70231"></option>
+<option value="THALORE" label="THRISSUR · Branch code 70470"></option>
+<option value="THAMARAKULAM" label="ALAPUZHA · Branch code 70271"></option>
+<option value="THAMARASSERY" label="KOZHIKODE · Branch code 70225"></option>
+<option value="THANGALUR" label="THRISSUR · Branch code 71253"></option>
+<option value="THEKKEKARA" label="ALAPUZHA · Branch code 71084"></option>
+<option value="THEKKETHUKAVALA" label="KOTTAYAM · Branch code 70430"></option>
+<option value="THEKKUMBHAGOM" label="IDUKKI · Branch code 70408"></option>
+<option value="THEKKUTHODE" label="PATHANAMTHITTA · Branch code 71128"></option>
+<option value="THELLAKOM" label="KOTTAYAM · Branch code 70952"></option>
+<option value="THELLIYOOR" label="PATHANAMTHITTA · Branch code 71181"></option>
+<option value="THENMALA" label="KOLLAM · Branch code 70323"></option>
+<option value="THIRUMALA" label="THIRUVANANTHAPURAM · Branch code 70022"></option>
+<option value="THIRUMENI" label="KANNUR · Branch code 70554"></option>
+<option value="THIRUMOOLAPURAM" label="PATHANAMTHITTA · Branch code 70359"></option>
+<option value="THIRUNAVAYA" label="MALAPPURAM · Branch code 71098"></option>
+<option value="THIRUVALLA TOWN" label="PATHANAMTHITTA · Branch code 70094"></option>
+<option value="THIRUVAMBADY" label="KOZHIKODE · Branch code 70296"></option>
+<option value="THIRUVAMKULAM" label="ERNAKULAM · Branch code 70395"></option>
+<option value="THIRUVANANTHAPURAM- MEDICAL COLLEGE" label="THIRUVANANTHAPURAM · Branch code 70029"></option>
+<option value="THIRUVANCHOOR" label="KOTTAYAM · Branch code 70432"></option>
+<option value="THIRUVARPU" label="KOTTAYAM · Branch code 70223"></option>
+<option value="THIRUVILWAMALA" label="THRISSUR · Branch code 70294"></option>
+<option value="THODUPUZHA TOWN" label="IDUKKI · Branch code 70155"></option>
+<option value="THOOKKUPALAM" label="IDUKKI · Branch code 70369"></option>
+<option value="THOPPUMPADI" label="ERNAKULAM · Branch code 70141"></option>
+<option value="THOTTADA" label="KANNUR · Branch code 70409"></option>
+<option value="THOTTAKKADU KOTTAYAM" label="KOTTAYAM · Branch code 71183"></option>
+<option value="THOTTAKKATTUKARA ALUVA" label="ERNAKULAM · Branch code 70336"></option>
+<option value="THRIKKADAVOOR" label="KOLLAM · Branch code 70393"></option>
+<option value="THRIKKANNAPATHIYARAM" label="THRISSUR · Branch code 70920"></option>
+<option value="THRIKKODITHANAM" label="KOTTAYAM · Branch code 70385"></option>
+<option value="THRISSUR" label="THRISSUR · Branch code 70253"></option>
+<option value="THRISSUR- CIVIL STATION" label="THRISSUR · Branch code 70164"></option>
+<option value="THRISSUR- ROUND SOUTH" label="THRISSUR · Branch code 70165"></option>
+<option value="THRITHALA" label="PALAKKAD · Branch code 71027"></option>
+<option value="THUMPAMON" label="PATHANAMTHITTA · Branch code 70080"></option>
+<option value="THURAVOOR" label="ALAPUZHA · Branch code 70536"></option>
+<option value="THURUTHY" label="KOTTAYAM · Branch code 70370"></option>
+<option value="TIRURANGADI" label="MALAPPURAM · Branch code 70344"></option>
+<option value="TRIKKAKARA CIVIL STATION" label="ERNAKULAM · Branch code 70339"></option>
+<option value="TRIPRAYAR" label="THRISSUR · Branch code 70236"></option>
+<option value="TRIPUNITHURA" label="ERNAKULAM · Branch code 70156"></option>
+<option value="TRIVANDRUM CITY" label="THIRUVANANTHAPURAM · Branch code 70028"></option>
+<option value="UCHAKKADA" label="THIRUVANANTHAPURAM · Branch code 71075"></option>
+<option value="UDAYAMPEROOR" label="ERNAKULAM · Branch code 70348"></option>
+<option value="UDIYANKULANGARA" label="THIRUVANANTHAPURAM · Branch code 70460"></option>
+<option value="UDUMA" label="KASARAGOD · Branch code 70813"></option>
+<option value="UDYOGMANDAL" label="ERNAKULAM · Branch code 70158"></option>
+<option value="ULIKKAL" label="KANNUR · Branch code 71118"></option>
+<option value="ULLIYERI" label="KOZHIKODE · Branch code 71261"></option>
+<option value="UPPALA" label="KASARAGOD · Branch code 71167"></option>
+<option value="URAKOM" label="THRISSUR · Branch code 70175"></option>
+<option value="UZHAMALACKAL" label="THIRUVANANTHAPURAM · Branch code 70547"></option>
+<option value="UZHAVOOR" label="KOTTAYAM · Branch code 70124"></option>
+<option value="VADAKARA" label="KOZHIKODE · Branch code 70189"></option>
+<option value="VADAKKANCHERRY" label="PALAKKAD · Branch code 70187"></option>
+<option value="VADASSERIKARA" label="PATHANAMTHITTA · Branch code 70093"></option>
+<option value="VADAVANNUR" label="PALAKKAD · Branch code 71048"></option>
+<option value="VADAVATHUR" label="KOTTAYAM · Branch code 70343"></option>
+<option value="VADUTHALA" label="ERNAKULAM · Branch code 70855"></option>
+<option value="VAGAMON" label="IDUKKI · Branch code 70315"></option>
+<option value="VAIKOM" label="KOTTAYAM · Branch code 70125"></option>
+<option value="VAKATHANAM" label="KOTTAYAM · Branch code 70110"></option>
+<option value="VAKAYAR" label="PATHANAMTHITTA · Branch code 70768"></option>
+<option value="VAKKOM" label="THIRUVANANTHAPURAM · Branch code 70050"></option>
+<option value="VALAKOM" label="ERNAKULAM · Branch code 70580"></option>
+<option value="VALAKUZHY" label="PATHANAMTHITTA · Branch code 70559"></option>
+<option value="VALANCHERRY" label="MALAPPURAM · Branch code 70637"></option>
+<option value="VALANJAMBALAM" label="ERNAKULAM · Branch code 70898"></option>
+<option value="VALAVOOR" label="KOTTAYAM · Branch code 70539"></option>
+<option value="VALAYANCHIRANGARA" label="ERNAKULAM · Branch code 70558"></option>
+<option value="VALAYAR" label="PALAKKAD · Branch code 70418"></option>
+<option value="VALLARPADAM" label="ERNAKULAM · Branch code 70801"></option>
+<option value="VALLIKUNNAM" label="ALAPUZHA · Branch code 70468"></option>
+<option value="VALLIVATTOM" label="THRISSUR · Branch code 71254"></option>
+<option value="VAMANAPURAM" label="THIRUVANANTHAPURAM · Branch code 70052"></option>
+<option value="VANDANAM" label="ALAPUZHA · Branch code 70275"></option>
+<option value="VANDIPERIYAR" label="IDUKKI · Branch code 70126"></option>
+<option value="VARANAD" label="ALAPUZHA · Branch code 70483"></option>
+<option value="VARANDARAPILLY" label="THRISSUR · Branch code 71092"></option>
+<option value="VARAPUZHA" label="ERNAKULAM · Branch code 70146"></option>
+<option value="VARAVOOR" label="THRISSUR · Branch code 70564"></option>
+<option value="VATTIYOORKAVU" label="THIRUVANANTHAPURAM · Branch code 70433"></option>
+<option value="VAYALA- NELLIKUNNU" label="KOTTAYAM · Branch code 71215"></option>
+<option value="VAZHAKKALA" label="ERNAKULAM · Branch code 70809"></option>
+<option value="VAZHAKUNNAM" label="PATHANAMTHITTA · Branch code 70763"></option>
+<option value="VAZHITHALA" label="IDUKKI · Branch code 70962"></option>
+<option value="VAZHUTHACAUD" label="THIRUVANANTHAPURAM · Branch code 70033"></option>
+<option value="VECHOOR" label="KOTTAYAM · Branch code 70127"></option>
+<option value="VELAMANNUR" label="KOLLAM · Branch code 70591"></option>
+<option value="VELIYANNOR" label="KOTTAYAM · Branch code 70444"></option>
+<option value="VELLANAD" label="THIRUVANANTHAPURAM · Branch code 70793"></option>
+<option value="VELLAYAMBALAM" label="THIRUVANANTHAPURAM · Branch code 70308"></option>
+<option value="VELLAYANI" label="THIRUVANANTHAPURAM · Branch code 70019"></option>
+<option value="VEMBAYAM" label="THIRUVANANTHAPURAM · Branch code 70278"></option>
+<option value="VENGALLOOR" label="IDUKKI · Branch code 71085"></option>
+<option value="VENGANOOR" label="THIRUVANANTHAPURAM · Branch code 70049"></option>
+<option value="VENGARA" label="MALAPPURAM · Branch code 70635"></option>
+<option value="VENMONY" label="ALAPUZHA · Branch code 70095"></option>
+<option value="VENNALA" label="ERNAKULAM · Branch code 70808"></option>
+<option value="VENNIKULAM" label="PATHANAMTHITTA · Branch code 70098"></option>
+<option value="VENNIYOOR" label="MALAPPURAM · Branch code 71156"></option>
+<option value="VIKAS BHAWAN" label="THIRUVANANTHAPURAM · Branch code 70415"></option>
+<option value="VILAKUDI" label="KOLLAM · Branch code 71114"></option>
+<option value="VILLIAPPALLY" label="KOZHIKODE · Branch code 70868"></option>
+<option value="VITHURA" label="THIRUVANANTHAPURAM · Branch code 70214"></option>
+<option value="VIZHINJAM" label="THIRUVANANTHAPURAM · Branch code 70325"></option>
+<option value="VRINDAVANAM" label="PATHANAMTHITTA · Branch code 70386"></option>
+<option value="WANDOOR" label="MALAPPURAM · Branch code 70726"></option>
+<option value="WEST FORT THRISSUR" label="THRISSUR · Branch code 70735"></option>
+<option value="WEST HILL" label="KOZHIKODE · Branch code 70857"></option>
+<option value="VENJARAMOODU" label="THIRUVANANTHAPURAM · Branch code 70254"></option>
+</datalist><small class="branch-source">Kerala SBI branch suggestions, including Venjaramoodu entries · <a href="https://sbi.bank.in/documents/17836/22946/05032026_Branches%2Bas%2Bon_31122025.pdf/f907ef2c-215b-a160-8444-f0f2785f8250?t=1772687949401" target="_blank" rel="noopener">Official SBI directory</a> · <a href="https://sbi.co.in/webfiles/uploads/files/1522823908361_CLUSTERWISE_BRANCHLIST.pdf" target="_blank" rel="noopener">SBI cluster list</a></small></div>
+<div class="grid2"><div class="field"><label for="date">Date</label><input id="date" type="date"></div><div class="field"><label for="empId">BFIL Employee ID</label><input id="empId" placeholder="Employee ID"></div></div>
+<div class="field"><label for="empName">BFIL Employee Name</label><input id="empName" placeholder="Employee name"></div>
+<div class="grid2"><div class="field"><label for="branchId">BFIL Branch ID</label><input id="branchId" placeholder="Branch ID"></div><div class="field"><label for="branchName">BFIL Branch Name</label><input id="branchName" placeholder="Branch name"></div></div>
+<div class="field"><label for="mobile">Employee Mobile Number</label><input id="mobile" inputmode="tel" placeholder="Mobile number"></div>
+<div class="denom-head"><span>Cash denominations</span><span>Note / coin count</span></div><div id="denoms"></div>
+<div class="totalBox"><span>Total cash</span><span id="total">₹0.00</span></div><div class="field" style="margin:12px 0 0"><label for="words">Amount in words (editable)</label><input id="words" placeholder="Amount in words"></div>
+<div class="actions"><button class="btn clear" id="clear" type="button">Clear</button><button class="btn print" id="print" type="button">Print</button></div><p class="hint">Print on A4 portrait. This set prints in the top half; the bottom half stays blank for another set. Turn off “Headers and footers” in the print dialog to remove the browser date, title and file path.</p></div></section>
+<section class="preview"><div class="preview-head"><span>Live preview · A4 portrait · side-by-side copies</span><span class="badge">CUSTOMER COPY + BANK COPY · A4 PORTRAIT</span></div><div class="copies" id="copies"></div></section></main>
+<script>
+(()=>{const tool=new URLSearchParams(location.search).get('tool');document.body.classList.add(tool==='income'?'in-income':'in-tool');document.querySelectorAll('.back-home').forEach(button=>button.addEventListener('click',()=>{if(window.parent!==window)window.parent.postMessage({type:'cash-tool-back'},location.origin==='null'?'*':location.origin);else location.href='./index.html'}));window.addEventListener('message',event=>{if(event.source!==window.parent||event.origin!==location.origin||event.data?.type!=='cash-tool-theme')return;document.body.dataset.theme=event.data.theme==='dark'?'dark':'light'});let lastHeight=0;function reportHeight(){const main=document.body.classList.contains('in-income')?document.querySelector('#income-screen'):document.querySelector('main');if(!main)return;const height=Math.ceil(main.getBoundingClientRect().bottom+32);if(height!==lastHeight){lastHeight=height;window.parent.postMessage({type:'cash-tool-frame-height',height},location.origin==='null'?'*':location.origin)}}new ResizeObserver(reportHeight).observe(document.body);window.addEventListener('load',reportHeight);window.addEventListener('resize',reportHeight);})();
+</script>
+<script>
+(()=>{const ids=['ia-customer','ia-customer-id','ia-officer','ia-date','ia-assessor','ia-sales','ia-business-type','ia-custom-margin','ia-rent','ia-salary','ia-other','ia-existing-emi','ia-tab','ia-income-eligibility'];const $id=id=>document.getElementById(id);let businessMargins=new Map();const marginStatus=$id('ia-margin-lookup-status');const get=id=>{const v=$id(id).value;return v===''?null:Number(v)};const money=n=>n===null||!Number.isFinite(n)?'–':Math.round(n).toLocaleString('en-IN');const text=id=>$id(id).value.trim()||' ';function localDate(){const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)}$id('ia-date').value=localDate();function update(){const daily=get('ia-sales'),businessType=$id('ia-business-type').value.trim(),customMargin=get('ia-custom-margin'),listedMargin=businessMargins.get(businessType),margin=listedMargin??(businessType?customMargin:null),rent=get('ia-rent'),salary=get('ia-salary'),other=get('ia-other'),emi=get('ia-existing-emi'),tab=get('ia-tab'),assessor=$id('ia-assessor').value;const monthly=daily===null?null:daily*30,gross=monthly===null||margin===null?null:monthly*margin/100,expense=[rent,salary,other].every(x=>x===null)?null:(rent||0)+(salary||0)+(other||0),profit=gross===null||expense===null?null:gross-expense,serviceable=profit===null?null:Math.max(0,profit*.5),available=serviceable===null||emi===null?null:Math.max(0,serviceable-emi),weekly=available===null?null:available/4;const ticket=n=>weekly===null?null:weekly*n;const incomeEligibility=get('ia-income-eligibility'),sanction=tab===null||incomeEligibility===null?null:Math.min(tab,incomeEligibility);$id('out-customer').textContent=text('ia-customer');$id('out-customer-id').textContent=text('ia-customer-id');$id('out-officer').textContent=text('ia-officer');const date=$id('ia-date').value;$id('out-date').textContent=date?new Date(date+'T12:00:00').toLocaleDateString('en-IN'):' ';$id('out-tab').textContent=tab===null?'':money(tab);$id('out-income-eligibility').textContent=incomeEligibility===null?'':money(incomeEligibility);$id('out-sanction').textContent=sanction===null?'':money(sanction);if(marginStatus){if(listedMargin!==undefined)marginStatus.textContent=`${businessType}: ${listedMargin}% margin from list`;else if(businessType&&customMargin!==null)marginStatus.textContent=`${businessType}: ${customMargin}% custom margin`;else if(businessType&&businessMargins.size)marginStatus.textContent='Type not listed. Use “Add custom business type / margin” below.';else if(businessMargins.size)marginStatus.textContent=`${businessMargins.size} business types loaded from Kerala Banking.`;}const rows=[{l:'Business Income:',section:true,remark:'Discussion between Customer and Staff'},{code:'A',l:'Daily Sales / Receipts – A',v:daily,shade:'input-row',remark:'Input basis discussion with Customer'},{code:'B',l:'Monthly Sales – B',f:'B = A × 30 days',v:monthly,calc:true,shade:'calc-warm'},{code:'C',l:'Margin %',v:margin===null?null:margin+'%',shade:'input-row',remark:'Input basis discussion with Customer',raw:true},{code:'D',l:'Gross Monthly Profit',f:'D = B × C',v:gross,calc:true,shade:'calc-warm'},{l:'Business Expenses:',section:true,shade:'expense-section'},{code:'(i)',l:'Shop Rent',v:rent,shade:'input-row',remark:'Input basis discussion with Customer'},{code:'(ii)',l:'Employees Salary',v:salary,shade:'input-row',remark:'Input basis discussion with Customer'},{code:'(iii)',l:'Other business expenses',v:other,shade:'input-row',remark:'Input basis discussion with Customer'},{code:'E',l:'Total Expenses Total',f:'E = i + ii + iii',v:expense,calc:true,shade:'calc-warm'},{code:'F',l:'Total Monthly Profit',f:'F = D − E',v:profit,calc:true,shade:'calc-blue'},{code:'G',l:'Maximum Serviceable EMI',f:'G = 50% × F',v:serviceable,calc:true,shade:'calc-blue'},{code:'H',l:'Existing EMI^ of all running loans',v:emi,shade:'existing-row',remark:'Amount as per CIBIL report'},{code:'I',l:'Proposed EMIs (Maximum)',f:'I = G − H',v:available,calc:true,shade:'calc-blue'},{code:'J',l:'Maximum EWI',f:'J = I ÷ 4',v:weekly,calc:true,shade:'calc-blue'},{code:'K',l:'Ticket size ( 50 weeks)',f:'K = J × 50',v:ticket(50),calc:true,shade:'ticket-row'},{code:'L',l:'Ticket size ( 75 weeks)',f:'L = J × 75',v:ticket(75),calc:true,shade:'ticket-row'},{code:'M',l:'Ticket size ( 104 weeks) Only for Cycle 2 and above',f:'M = J × 104',v:ticket(104),calc:true,shade:'ticket-row'},{code:'N',l:'Ticket size ( 156 weeks) Only for Cycle 2 and above',f:'N = J × 156',v:ticket(156),calc:true,shade:'ticket-row'}];$id('assessment-rows').innerHTML=rows.map(r=>{if(r.section){return `<tr class="section-row"><td></td><td>${r.l}</td><td></td><td></td><td></td><td>${r.remark||''}</td></tr>`;}const val=r.raw?(r.v===null?'–':r.v):money(r.v);const mark=r.v===null?'–':val,lo=assessor==='LO'?mark:'–',bom=assessor==='BOM'?mark:'–',remark=r.remark||(r.calc?'Calculated':'Input basis discussion with Customer');return `<tr class="${r.shade||''} ${r.calc?'result-row':''}"><td>${r.code}</td><td>${r.l}</td><td>${r.f||'–'}</td><td>${lo}</td><td>${bom}</td><td>${remark}</td></tr>`}).join('')}ids.forEach(id=>$id(id).addEventListener('input',update));fetch('./business-margins.json').then(response=>{if(!response.ok)throw new Error('Margin list unavailable');return response.json()}).then(entries=>{const options=$id('ia-business-type-options');businessMargins=new Map(entries.filter(entry=>Array.isArray(entry)&&typeof entry[0]==='string'&&Number.isFinite(Number(entry[1]))).map(([name,percent])=>[name,Number(percent)]));options.replaceChildren(...entries.filter(entry=>Array.isArray(entry)&&typeof entry[0]==='string').map(([name])=>new Option(name,name)));marginStatus.textContent=`${businessMargins.size} business types loaded from Kerala Banking.`;update()}).catch(()=>{marginStatus.textContent='Business type margins could not be loaded. Check your connection and reload.';update()});$id('ia-assessor').addEventListener('change',update);const customToggle=$id('ia-custom-margin-toggle'),customPanel=$id('ia-custom-margin-panel');customToggle.addEventListener('click',()=>{const opening=customPanel.hidden;customPanel.hidden=!opening;customToggle.setAttribute('aria-expanded',String(opening));if(opening)$id('ia-custom-margin').focus()});$id('ia-print').addEventListener('click',()=>window.print());$id('ia-clear').addEventListener('click',()=>{ids.forEach(id=>{if(id==='ia-assessor')$id(id).value='LO';else $id(id).value=''});customPanel.hidden=true;customToggle.setAttribute('aria-expanded','false');$id('ia-date').value=localDate();update()});update()})();
+</script>
+<script>
+const denominations=[['note',2000],['note',500],['note',200],['note',100],['note',50],['note',20],['note',10],['note',5],['coin',10],['coin',5],['coin',2],['coin',1]];
+const inputs=['branch','date','empId','empName','branchId','branchName','mobile'];const $=id=>document.getElementById(id);const denoms=$('denoms');
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+denominations.forEach(([type,value],i)=>{if(i===0||i===8){const label=document.createElement('div');label.className='denom-head';label.style.margin='10px 0 3px';label.innerHTML=`<span>${type==='note'?'Notes':'Coins'}</span><span></span>`;denoms.append(label)}const row=document.createElement('div');row.className='denom';row.innerHTML=`<label for="d${i}">× ₹${value}</label><input class="count" id="d${i}" type="number" min="0" step="1" value="" aria-label="Count of ${type} ₹${value}">`;row.querySelector('input').addEventListener('input',render);denoms.append(row)});
+function rupees(n){return '₹'+n.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function wordsIndian(num){if(num===0)return ''; const ones=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];const tens=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];function under1000(n){let s='';if(n>=100){s+=ones[Math.floor(n/100)]+' Hundred';n%=100;if(n)s+=' '}if(n>=20){s+=tens[Math.floor(n/10)];if(n%10)s+=' '+ones[n%10]}else if(n)s+=ones[n];return s}let n=Math.floor(num),parts=[];[['Crore',10000000],['Lakh',100000],['Thousand',1000],['',1]].forEach(([name,unit])=>{const q=Math.floor(n/unit);if(q){parts.push(under1000(q)+(name?' '+name:''));n%=unit}});return parts.join(' ')+' Rupees Only'}
+function makeCopy(type,total,amountWords){const val=id=>$(id).value.trim();const date=val('date')?new Date(val('date')+'T12:00:00').toLocaleDateString('en-IN'):' ';let rows='';rows+=denominations.slice(0,8).map(([kind,value],j)=>{const count=Math.max(0,parseInt($('d'+j).value)||0),amount=count*value;return `<tr><td><span class="note-count entry-value">${count||''}</span>X ${value.toLocaleString('en-IN')}</td><td>${amount?amount.toLocaleString('en-IN'):''}</td><td>${amount?'.00':''}</td></tr>`}).join('');rows+='<tr class="cash-section"><td>Coins</td><td></td><td></td></tr>';rows+=denominations.slice(8).map(([kind,value],j)=>{const i=j+8,count=Math.max(0,parseInt($('d'+i).value)||0),amount=count*value;return `<tr><td><span class="note-count entry-value">${count||''}</span>X ${value.toLocaleString('en-IN')}</td><td>${amount?amount.toLocaleString('en-IN'):''}</td><td>${amount?'.00':''}</td></tr>`}).join('');return `<article class="copy ${type.startsWith('BANK')?'bank-copy':'customer-copy'}"><div class="copy-title">Challan for CASH Deposit in Any Branch of SBI (Power Jyoti)</div><div class="copy-type">${type}</div><div class="rule"></div><p class="bankline">State Bank of India <span class="entry-value" style="display:inline-block;border-bottom:1px solid #222;width:62%">${esc(val('branch'))}</span> Branch</p><div class="fillrow"><b>Date</b><span class="uline entry-value">${esc(date)}</span><b>SBI CBS Screen. No.8888</b><span class="fixed">FEE TYPE: 7193</span></div><p class="fixed">For the Credit of Bharat Financial Inclusion Limited</p><p class="fixed">Account No. 37957858015 (Power Jyoti A/c.) IFSC SBIN0004168</p><p class="fixed">PAN No. AAECI9566Q</p><div class="employee"><b>BFIL Emp ID:</b><span class="uline entry-value">${esc(val('empId'))}</span><b>BFIL Emp Name:</b><span class="uline entry-value">${esc(val('empName'))}</span></div><div class="employee branch"><b>BFIL Branch ID:</b><span class="uline entry-value">${esc(val('branchId'))}</span><b>BFIL Branch Name:</b><span class="uline entry-value">${esc(val('branchName'))}</span></div><div class="fillrow single"><b>Employee Mobile No.</b><span class="uline entry-value">${esc(val('mobile'))}</span></div><div class="amount-line"><b>Amount in Rs.</b><span class="uline">${total?total.toLocaleString('en-IN'):''}</span><b>Amount (in Words)</b><span class="uline amount-words entry-value">${esc(amountWords)}</span></div><div class="words-extra"></div><div class="separator"></div><table class="denom-table"><thead><tr><th colspan="3">Details of Cash</th></tr><tr><th>Cash Notes</th><th>Amount in Rs.</th><th>Ps.</th></tr></thead><tbody>${rows}<tr class="sumrow"><td>Total</td><td>${total?total.toLocaleString('en-IN'):''}</td><td>${total?'.00':''}</td></tr></tbody></table><div class="signatures"><span>Cashier</span><span>Cash/Passing Officer</span><span>Depositor’s Signature</span></div></article>`}
+function render(){let total=0;denominations.forEach(([_,v],i)=>total+=Math.max(0,parseInt($('d'+i).value)||0)*v);$('total').textContent=rupees(total);const words=$('words');if(!words.dataset.touched||words.value==='')words.value=total?wordsIndian(total):'';const w=words.value.trim();const customer=makeCopy('CUSTOMER COPY',total,w),bank=makeCopy('BANK COPY (TO BE RETAINED BY SBI)',total,w);$('copies').innerHTML=customer+bank;layoutAmountWords(w)}
+function layoutAmountWords(text){document.querySelectorAll('.copy').forEach(copy=>{const first=copy.querySelector('.amount-words'),next=copy.querySelector('.words-extra');if(!first||!next)return;const parts=text.trim().split(/\s+/).filter(Boolean);const style=getComputedStyle(first);const canvas=document.createElement('canvas');const context=canvas.getContext('2d');context.font=style.font;const maxWidth=Math.max(0,first.clientWidth-4);let fit=parts.length;while(fit>0&&context.measureText(parts.slice(0,fit).join(' ')).width>maxWidth)fit--;if(fit===0&&parts.length)fit=1;first.textContent=parts.slice(0,fit).join(' ');next.textContent=parts.slice(fit).join(' ')})}
+$('words').addEventListener('input',e=>{e.target.dataset.touched='1';render()});inputs.forEach(id=>$(id).addEventListener('input',render));$('print').onclick=()=>window.print();$('clear').onclick=()=>{inputs.forEach(id=>$(id).value='');denominations.forEach((_,i)=>$('d'+i).value=0);$('words').value='';delete $('words').dataset.touched;render()};$('date').value=new Date().toISOString().slice(0,10);render();
+</script><script src="./challan-access.js"></script></body></html>

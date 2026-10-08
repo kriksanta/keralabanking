@@ -1,6 +1,10 @@
-const CACHE_NAME = 'bfil-cash-tools-v24';
+const CACHE_NAME = 'bfil-cash-tools-v29';
 const APP_FILES = [
   './index.html',
+  './print-tools.html',
+  './challan-access.js',
+  './print-tools-integration.css',
+  './print-tools-integration.js',
   './admin-panel.css',
   './admin-panel.js',
   './site-config.json',
