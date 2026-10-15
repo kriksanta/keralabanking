@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bfil-cash-tools-v29';
+const CACHE_NAME = 'bfil-cash-tools-v30';
 const APP_FILES = [
   './index.html',
   './print-tools.html',
@@ -35,6 +35,7 @@ self.addEventListener('fetch', event => {
     return response;
   }).catch(() => caches.match(event.request).then(cached => cached || caches.match('./index.html'))));
 });
+
 
 
 
