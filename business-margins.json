@@ -1,358 +1,876 @@
 [
   [
-    "Egg Center – Wholesale cum Retail",
-    10
-  ],
-  [
-    "Cool Drinks / Water Bottles Shop",
-    10
-  ],
-  [
-    "Bangle Selling – Wholesale cum Retail",
-    10
-  ],
-  [
-    "Sewing Machine Sales & Repair",
-    15
-  ],
-  [
-    "Gym Supplements Shop",
-    20
-  ],
-  [
-    "Tyre Sales Shop",
-    20
-  ],
-  [
-    "Snacks / Namkeen",
-    20
-  ],
-  [
     "General Store",
-    25
+    25,
+    "General Store",
+    "Kirana, grocery and general items",
+    "",
+    1
   ],
   [
-    "Jewellery Store",
-    25
+    "Garments Store",
+    30,
+    "Garments Store",
+    "Clothes, menswear, kidswear, womenswear and textiles",
+    "",
+    2
   ],
   [
-    "Fertilizers, Pesticides & Seeds Shop",
-    25
+    "Hotel",
+    39,
+    "Hotel",
+    "Food cooking and serving; minimum tables and chairs",
+    "",
+    3
   ],
   [
-    "Sanitary Store",
-    25
-  ],
-  [
-    "Tiles & Marbles Sales",
-    25
-  ],
-  [
-    "Steel / Iron Almirah Shop",
-    25
-  ],
-  [
-    "Building & Construction Materials Shop",
-    25
-  ],
-  [
-    "Repair / Garages – Four Wheeler & Above",
-    25
-  ],
-  [
-    "Musical Instruments",
-    25
-  ],
-  [
-    "General Store – Wholesale cum Retail",
-    25
-  ],
-  [
-    "Tent Shop / Lighting / Decoration",
-    25
-  ],
-  [
-    "Meat Shop – Chicken, Mutton & Seafood",
-    25
-  ],
-  [
-    "Rice / Wheat / Pulses – Wholesale cum Retail",
-    28
-  ],
-  [
-    "Hardware Shop",
-    29
-  ],
-  [
-    "Steel / Plastic Shop",
-    29
-  ],
-  [
-    "Agriculture Equipment Sales",
-    29
-  ],
-  [
-    "Garments Store – Wholesale cum Retail",
-    30
+    "Hair Saloon/Beauty Parlour",
+    50,
+    "Hair Saloon/Beauty Parlour",
+    "Men's parlour, salon, beauty parlour and hairdressing",
+    "",
+    4
   ],
   [
     "Mobile Phone & Accessories",
-    30
+    30,
+    "Mobile Phone & Accessories",
+    "Mobile phones with adequate stock; covers, chargers, tempered glass; valid franchise documents",
+    "",
+    5
   ],
   [
-    "Accessories – Two & Four Wheeler",
-    30
+    "Fancy Store",
+    34,
+    "Fancy Store",
+    "Bangles, cosmetics, perfumes and embroidery items",
+    "",
+    6
   ],
   [
-    "Medical Shop – Wholesale cum Retail",
-    30
+    "Accessories (Two & Four-wheeler)",
+    30,
+    "Accessories (Two & Four-wheeler)",
+    "Auto parts and spares; NOT a repair shop",
+    "",
+    7
+  ],
+  [
+    "Hardware Shop",
+    29,
+    "Hardware Shop",
+    "Keys, nuts, screws, hinges, handles, tools, utensils, iron rods, wires, steel",
+    "",
+    8
+  ],
+  [
+    "Tailoring Shop",
+    35,
+    "Tailoring Shop",
+    "Stitching, embroidery, dresses, lunch bags, school bags, sofa covers",
+    "",
+    9
+  ],
+  [
+    "Medical Shop",
+    30,
+    "Medical Shop",
+    "Drugs, medicines, cosmetics, ayurvedic and homeopathic medicines",
+    "",
+    10
   ],
   [
     "Footwear Store",
-    30
+    30,
+    "Footwear Store",
+    "Sandals, shoes, slippers, boots, belts, socks",
+    "",
+    11
   ],
   [
-    "Bakery",
-    30
-  ],
-  [
-    "Sweet Shop",
-    30
-  ],
-  [
-    "Dairy Parlor",
-    30
-  ],
-  [
-    "Gift Article Shop",
-    30
-  ],
-  [
-    "Household Items",
-    30
-  ],
-  [
-    "Flour Mill",
-    30
-  ],
-  [
-    "Bicycle Sales & Accessories",
-    30
-  ],
-  [
-    "Glass Sales & Service",
-    30
-  ],
-  [
-    "Animal Feeds",
-    30
-  ],
-  [
-    "Fruit Juice Shop",
-    30
-  ],
-  [
-    "Ice Cream Shop",
-    30
-  ],
-  [
-    "Home Cleaning Materials Shop",
-    30
-  ],
-  [
-    "Fancy Store – Wholesale cum Retail",
-    34
+    "Jewellery Store",
+    25,
+    "Jewellery Store",
+    "Gold, silver, platinum, diamond ornaments; making and selling jewellery",
+    "",
+    12
   ],
   [
     "Furniture Shop",
-    34
+    34,
+    "Furniture Shop",
+    "Sofas, chairs, cots, tables, mattresses",
+    "",
+    13
   ],
   [
     "Electronic Shop",
-    34
+    34,
+    "Electronic Shop",
+    "TVs, computers, audio, headphones, fridges, washing machines, ovens, watches, clocks",
+    "",
+    14
   ],
   [
-    "Fabrication",
-    34
+    "Electrical Shop",
+    39,
+    "Electrical Shop",
+    "Wires, cables, switches, sockets, fans, geysers, lights, mixers, grinders",
+    "",
+    15
+  ],
+  [
+    "Bakery",
+    30,
+    "Bakery",
+    "Food cooking and serving; minimum tables and chairs",
+    "",
+    16
+  ],
+  [
+    "Meat Shop - Chicken, Mutton and Sea food (fresh or dry) — Retail",
+    25,
+    "Meat Shop - Chicken, Mutton and Sea food (fresh or dry)",
+    "Chicken, eggs, mutton, beef, pork, fish, prawns",
+    "Retail",
+    17
+  ],
+  [
+    "Meat Shop - Chicken, Mutton and Sea food (fresh or dry) — Wholesale",
+    15,
+    "Meat Shop - Chicken, Mutton and Sea food (fresh or dry)",
+    "Chicken, eggs, mutton, beef, pork, fish, prawns",
+    "Wholesale",
+    17
+  ],
+  [
+    "Fabrication and Welding Works",
+    34,
+    "Fabrication and Welding Works",
+    "Metal cutting, bending, welding and assembling",
+    "",
+    18
   ],
   [
     "Fruits & Vegetables Shop",
-    34
+    34,
+    "Fruits & Vegetables Shop",
+    "Various fruits and vegetables",
+    "",
+    19
   ],
   [
-    "Home Interior & Decorative Items",
+    "Sweet Shop",
+    30,
+    "Sweet Shop",
+    "Sweets, chocolates, cold drinks, beverages, fast food and namkeen",
+    "",
+    20
+  ],
+  [
+    "Stationery Shop",
+    39,
+    "Stationery Shop",
+    "Office and school papers, books, notebooks, pens, pencils, compass etc.",
+    "",
+    21
+  ],
+  [
+    "Dairy Parlor",
+    30,
+    "Dairy Parlor",
+    "Milk, curd, ghee, cream, butter, ice cream, cold drinks and beverages",
+    "",
+    22
+  ],
+  [
+    "Gift Article Shop",
+    30,
+    "Gift Article Shop",
+    "Idols, frames, key holders, paintings, greeting cards, toys, teddy bears, games",
+    "",
+    23
+  ],
+  [
+    "Steel/Plastic Shop",
+    29,
+    "Steel/Plastic Shop",
+    "Steel/aluminium utensils, plates, glasses, vessels, tubs, buckets, water cans, cookers, grinders",
+    "",
+    24
+  ],
+  [
+    "Photo Studio",
+    35,
+    "Photo Studio",
+    "Passport/stamp/postcard photos, outdoor photography and videography",
+    "",
+    25
+  ],
+  [
+    "Household Items",
+    30,
+    "Household Items",
+    "Mixers, grinders, kettles, toasters, tawa, knives, scissors, ovens, chimney, crockery, mats, bedsheets",
+    "",
+    26
+  ],
+  [
+    "Tent House/ Lighting/Decoration",
+    25,
+    "Tent House/ Lighting/Decoration",
+    "Tents and large vessels on rent; event lighting and sound systems",
+    "",
+    27
+  ],
+  [
+    "Fertilizers Pesticides and Seeds Shop",
+    25,
+    "Fertilizers Pesticides and Seeds Shop",
+    "Agricultural fertilizers, pesticides and seeds",
+    "",
+    28
+  ],
+  [
+    "Pan Shop",
+    39,
+    "Pan Shop",
+    "Flavoured pan, pan masala, cigarettes, cold drinks, beverages, bottled water",
+    "",
+    29
+  ],
+  [
+    "Flour Mill",
+    30,
+    "Flour Mill",
+    "Machinery for grinding grains into flour/atta and spices",
+    "",
+    30
+  ],
+  [
+    "Scrap Shop",
+    35,
+    "Scrap Shop",
+    "Buying and reselling recyclable metal, plastic, paper, e-waste",
+    "",
+    31
+  ],
+  [
+    "Bicycle Sales and Accessories",
+    30,
+    "Bicycle Sales and Accessories",
+    "Bicycles and spare parts",
+    "",
+    32
+  ],
+  [
+    "Leather Work (Bags, Seat Covers, etc.)",
+    35,
+    "Leather Work (Bags, Seat Covers, etc.)",
+    "Leather bags, seat covers, belts, wallets, umbrellas, sofa covers",
+    "",
+    33
+  ],
+  [
+    "Home Interior and Decorative Items",
+    34,
+    "Home Interior and Decorative Items",
+    "Wall paintings, lights, fans, vases, false ceilings, plywood, modular interiors, curtains, photo frames",
+    "",
     34
   ],
   [
     "Pooja Items",
-    34
-  ],
-  [
-    "Sports & Fitness Goods",
-    34
-  ],
-  [
-    "Aquariums & Pets",
-    34
-  ],
-  [
-    "Water Filter / Purifier Sales",
-    34
-  ],
-  [
-    "Toy Store",
-    34
-  ],
-  [
-    "Fabrication & Welding Works",
-    34
-  ],
-  [
-    "Tailoring Shop",
+    34,
+    "Pooja Items",
+    "Incense sticks, diyas, bells, kumkum, coconuts, prasadam, idols",
+    "",
     35
-  ],
-  [
-    "Photo Studio",
-    35
-  ],
-  [
-    "Scrap Shop",
-    35
-  ],
-  [
-    "Leather Work – Bags, Seat Covers, etc.",
-    35
-  ],
-  [
-    "Car Decors & Radium Arts",
-    35
-  ],
-  [
-    "Optical Shop",
-    35
-  ],
-  [
-    "Disposable Items – Wholesale cum Retail",
-    38
-  ],
-  [
-    "Dry Fruits & Nuts",
-    38
-  ],
-  [
-    "Hotel",
-    39
-  ],
-  [
-    "Electrical Shop",
-    39
-  ],
-  [
-    "Stationery Shop – Wholesale cum Retail",
-    39
-  ],
-  [
-    "Pan Shop",
-    39
   ],
   [
     "Printing Press",
-    39
+    39,
+    "Printing Press",
+    "Digital and offset printing press",
+    "",
+    36
   ],
   [
-    "Batteries Work",
-    39
-  ],
-  [
-    "Tea & Snacks",
-    39
-  ],
-  [
-    "Fast Food",
-    39
-  ],
-  [
-    "Battery & Solar Panel Sales",
-    39
+    "Car Decors and Radium Arts",
+    35,
+    "Car Decors and Radium Arts",
+    "Car interiors, sound systems, radium stickers and two-wheeler decoration",
+    "",
+    37
   ],
   [
     "Paint Shop",
+    40,
+    "Paint Shop",
+    "Paints, pigments, binders, solvents and additives",
+    "",
+    38
+  ],
+  [
+    "Glass Sales and Service",
+    30,
+    "Glass Sales and Service",
+    "Glass for doors, partitions, mirrors, windows and interiors",
+    "",
+    39
+  ],
+  [
+    "Disposable Items",
+    38,
+    "Disposable Items",
+    "Disposable parcel containers, bags, sweet boxes, papers, plates, plastics",
+    "",
     40
   ],
   [
     "Mattresses Works",
+    43,
+    "Mattresses Works",
+    "Mattresses, pillows, sofa cushions, cloth mattresses, carpets",
+    "",
+    41
+  ],
+  [
+    "Flowers/Flower Bouquet",
+    49,
+    "Flowers/Flower Bouquet",
+    "Flowers and bouquets",
+    "",
+    42
+  ],
+  [
+    "Sanitary Store",
+    25,
+    "Sanitary Store",
+    "Sinks, flush tanks, showers, bathtubs, wash basins, tiles",
+    "",
     43
   ],
   [
-    "Coconut Sales",
+    "Batteries Work",
+    39,
+    "Batteries Work",
+    "Two/four-wheeler batteries, inverters, solar batteries, solar panels",
+    "",
+    44
+  ],
+  [
+    "Rice/Wheat/Pulses Shop",
+    28,
+    "Rice/Wheat/Pulses Shop",
+    "Rice, millets, grains and pulses",
+    "",
+    45
+  ],
+  [
+    "Animal Feeds",
+    30,
+    "Animal Feeds",
+    "Pet food, cattle, poultry and fish feeds",
+    "",
+    46
+  ],
+  [
+    "Optical Shop",
+    35,
+    "Optical Shop",
+    "Spectacles, sunglasses, shades, lenses",
+    "",
     47
   ],
   [
-    "Flowers / Flower Bouquet",
+    "Dry Fruits and Nuts",
+    38,
+    "Dry Fruits and Nuts",
+    "Almonds, cashews, pasta, dates etc.",
+    "",
+    48
+  ],
+  [
+    "Sports and Fitness Goods",
+    34,
+    "Sports and Fitness Goods",
+    "Footballs, badminton rackets, balls, bats, gym equipment, sportswear, caps, shoes",
+    "",
     49
   ],
   [
-    "Hair Salon / Beauty Parlour",
+    "Aquariums and Pets",
+    34,
+    "Aquariums and Pets",
+    "Aquarium fish and feed; birds, kittens, puppies, rabbits",
+    "",
     50
   ],
   [
-    "Diagnostic Centre",
-    50
+    "Coconut Sales",
+    47,
+    "Coconut Sales",
+    "Coconuts, tender coconut water, desiccated coconut",
+    "",
+    51
   ],
   [
-    "Bangle Making & Selling",
-    10
+    "Egg Centre",
+    10,
+    "Egg Centre",
+    "Egg sales wholesale and retail",
+    "",
+    52
   ],
   [
-    "Electrical Service & Repair Works",
-    35
+    "Tea and Snacks",
+    39,
+    "Tea and Snacks",
+    "Tea, puffs, samosa, biscuits, coffee, bhaji, panipuri, vada pav, fast food, franchise",
+    "",
+    53
+  ],
+  [
+    "Fast Food",
+    39,
+    "Fast Food",
+    "Rolls, egg rice, noodles, chaat, bhaji, panipuri, vada pav, cutlets",
+    "",
+    54
+  ],
+  [
+    "Fruit Juice Shop (Max Ticket Size 1 Lakh)",
+    30,
+    "Fruit Juice Shop (Max Ticket Size 1 Lakh)",
+    "Fruit juices, sugarcane juice, lassi, buttermilk, badam milk; maximum ticket ₹1 lakh",
+    "",
+    55
+  ],
+  [
+    "Ice Cream Shop",
+    30,
+    "Ice Cream Shop",
+    "Normal and flavoured ice creams",
+    "",
+    56
+  ],
+  [
+    "Gym Supplements Shop",
+    20,
+    "Gym Supplements Shop",
+    "Protein powder, creatine, glutamine, nutrition powders",
+    "",
+    57
+  ],
+  [
+    "Cool Drinks/Water Bottles Shop",
+    10,
+    "Cool Drinks/Water Bottles Shop",
+    "Soft drinks, cola, water bottles, lassi, badam milk",
+    "",
+    58
+  ],
+  [
+    "Tiles & Marbles Sales",
+    25,
+    "Tiles & Marbles Sales",
+    "Tiles, marble and granite for construction",
+    "",
+    59
+  ],
+  [
+    "Home Cleaning Materials Shop",
+    30,
+    "Home Cleaning Materials Shop",
+    "Vacuum cleaners, mops, brooms, cleaning tools, microfibre cloths, phenyl",
+    "",
+    60
+  ],
+  [
+    "Water Filter/Purifier Sales",
+    34,
+    "Water Filter/Purifier Sales",
+    "Water filters, purifiers and accessories",
+    "",
+    61
+  ],
+  [
+    "Steel/Iron Almirah Shop",
+    25,
+    "Steel/Iron Almirah Shop",
+    "Making and selling almirahs, iron tables, chairs, racks",
+    "",
+    62
+  ],
+  [
+    "Building and Construction Materials Shop",
+    25,
+    "Building and Construction Materials Shop",
+    "Cement, iron rods, cover blocks, bricks, centering materials, ladders, sand, hoes",
+    "",
+    63
+  ],
+  [
+    "Tyre Sales Shop",
+    20,
+    "Tyre Sales Shop",
+    "New two-wheeler and car tyres",
+    "",
+    64
+  ],
+  [
+    "Battery & Solar Panel Sales",
+    39,
+    "Battery & Solar Panel Sales",
+    "Solar panels, batteries, solar water heaters",
+    "",
+    65
+  ],
+  [
+    "Diagnostic Centre (Max Ticket Size 1 Lakh)",
+    50,
+    "Diagnostic Centre (Max Ticket Size 1 Lakh)",
+    "Blood/urine testing, scanning, X-ray; franchise with valid owner; maximum ticket ₹1 lakh",
+    "",
+    66
+  ],
+  [
+    "Toy Store",
+    34,
+    "Toy Store",
+    "Various toys",
+    "",
+    67
+  ],
+  [
+    "Agriculture Equipment Sales",
+    29,
+    "Agriculture Equipment Sales",
+    "Hand/power tools, mini tractors, tillers, pumps, paddy cutters, pesticide sprayers, ploughing machines",
+    "",
+    68
+  ],
+  [
+    "Snack/Namkeen — Retail",
+    20,
+    "Snack/Namkeen",
+    "",
+    "Retail",
+    69
+  ],
+  [
+    "Snack/Namkeen — Wholesale",
+    10,
+    "Snack/Namkeen",
+    "",
+    "Wholesale",
+    69
+  ],
+  [
+    "Sewing Machine Sales and Repair",
+    15,
+    "Sewing Machine Sales and Repair",
+    "",
+    "",
+    70
+  ],
+  [
+    "Repair/Garages (Four-wheeler and above)",
+    25,
+    "Repair/Garages (Four-wheeler and above)",
+    "",
+    "",
+    71
+  ],
+  [
+    "Musical Instruments",
+    25,
+    "Musical Instruments",
+    "",
+    "",
+    72
+  ],
+  [
+    "General Store - Wholesale cum Retail — Retail",
+    25,
+    "General Store - Wholesale cum Retail",
+    "",
+    "Retail",
+    73
+  ],
+  [
+    "General Store - Wholesale cum Retail — Wholesale",
+    10,
+    "General Store - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    73
+  ],
+  [
+    "Garments Store - Wholesale cum Retail — Retail",
+    30,
+    "Garments Store - Wholesale cum Retail",
+    "",
+    "Retail",
+    74
+  ],
+  [
+    "Garments Store - Wholesale cum Retail — Wholesale",
+    12,
+    "Garments Store - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    74
+  ],
+  [
+    "Medical - Wholesale cum Retail — Retail",
+    30,
+    "Medical - Wholesale cum Retail",
+    "",
+    "Retail",
+    75
+  ],
+  [
+    "Medical - Wholesale cum Retail — Wholesale",
+    10,
+    "Medical - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    75
+  ],
+  [
+    "Stationery Shop - Wholesale cum Retail — Retail",
+    39,
+    "Stationery Shop - Wholesale cum Retail",
+    "",
+    "Retail",
+    76
+  ],
+  [
+    "Stationery Shop - Wholesale cum Retail — Wholesale",
+    10,
+    "Stationery Shop - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    76
+  ],
+  [
+    "Disposable Items - Wholesale cum Retail — Retail",
+    38,
+    "Disposable Items - Wholesale cum Retail",
+    "",
+    "Retail",
+    77
+  ],
+  [
+    "Disposable Items - Wholesale cum Retail — Wholesale",
+    10,
+    "Disposable Items - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    77
+  ],
+  [
+    "Cool Drinks and Water Bottle - Wholesale cum Retail — Retail",
+    10,
+    "Cool Drinks and Water Bottle - Wholesale cum Retail",
+    "",
+    "Retail",
+    78
+  ],
+  [
+    "Cool Drinks and Water Bottle - Wholesale cum Retail — Wholesale",
+    10,
+    "Cool Drinks and Water Bottle - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    78
+  ],
+  [
+    "Rice / Wheat / Pulses - Wholesale cum Retail — Retail",
+    28,
+    "Rice / Wheat / Pulses - Wholesale cum Retail",
+    "",
+    "Retail",
+    79
+  ],
+  [
+    "Rice / Wheat / Pulses - Wholesale cum Retail — Wholesale",
+    10,
+    "Rice / Wheat / Pulses - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    79
+  ],
+  [
+    "Bangle Selling - Wholesale cum Retail — Retail",
+    10,
+    "Bangle Selling - Wholesale cum Retail",
+    "",
+    "Retail",
+    80
+  ],
+  [
+    "Bangle Selling - Wholesale cum Retail — Wholesale",
+    8,
+    "Bangle Selling - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    80
+  ],
+  [
+    "EGG Centre - Wholesale cum Retail — Retail",
+    10,
+    "EGG Centre - Wholesale cum Retail",
+    "",
+    "Retail",
+    81
+  ],
+  [
+    "EGG Centre - Wholesale cum Retail — Wholesale",
+    8,
+    "EGG Centre - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    81
+  ],
+  [
+    "Fancy Store - Wholesale cum Retail — Retail",
+    34,
+    "Fancy Store - Wholesale cum Retail",
+    "",
+    "Retail",
+    82
+  ],
+  [
+    "Fancy Store - Wholesale cum Retail — Wholesale",
+    15,
+    "Fancy Store - Wholesale cum Retail",
+    "",
+    "Wholesale",
+    82
+  ],
+  [
+    "Bangle Making and Selling — Retail",
+    10,
+    "Bangle Making and Selling",
+    "",
+    "Retail",
+    83
+  ],
+  [
+    "Bangle Making and Selling — Wholesale",
+    8,
+    "Bangle Making and Selling",
+    "",
+    "Wholesale",
+    83
+  ],
+  [
+    "Electrical Service and Repair Works",
+    35,
+    "Electrical Service and Repair Works",
+    "TV/fridge/AC/cooler repair and resale; motor winding",
+    "",
+    84
   ],
   [
     "Photo Framework",
-    30
+    30,
+    "Photo Framework",
+    "",
+    "",
+    85
   ],
   [
     "Laundry & Dry Cleaner",
-    40
+    40,
+    "Laundry & Dry Cleaner",
+    "Shops with proper licence and bill books",
+    "",
+    86
   ],
   [
     "Ayurvedic Medical Store",
-    35
+    35,
+    "Ayurvedic Medical Store",
+    "",
+    "",
+    87
   ],
   [
     "Canteen in Government Premises",
-    30
+    30,
+    "Canteen in Government Premises",
+    "Subject to valid contract",
+    "",
+    88
   ],
   [
     "Mobile Repair & Accessories",
-    30
+    30,
+    "Mobile Repair & Accessories",
+    "",
+    "",
+    89
   ],
   [
     "Goldsmith",
-    40
+    40,
+    "Goldsmith",
+    "",
+    "",
+    90
   ],
   [
-    "Tailoring Services (Bulk Orders)",
-    20
+    "Tailoring Services (Order Based - Bulk)",
+    20,
+    "Tailoring Services (Order Based - Bulk)",
+    "Bulk tailoring services",
+    "",
+    91
   ],
   [
     "Gold Ornaments (Making/Wholesale/Retail)",
-    25
+    25,
+    "Gold Ornaments (Making/Wholesale/Retail)",
+    "",
+    "",
+    92
   ],
   [
     "Silver Ornaments (Making/Wholesale/Retail)",
-    25
+    25,
+    "Silver Ornaments (Making/Wholesale/Retail)",
+    "",
+    "",
+    93
   ],
   [
     "RO Water Sale",
-    30
+    30,
+    "RO Water Sale",
+    "",
+    "",
+    94
   ],
   [
     "Handlooms",
-    35
+    35,
+    "Handlooms",
+    "",
+    "",
+    95
   ],
   [
-    "Watch / Clock Repair & Sales",
-    20
+    "Watch/Clock Repair and Sales",
+    20,
+    "Watch/Clock Repair and Sales",
+    "",
+    "",
+    96
   ]
 ]
+
+
